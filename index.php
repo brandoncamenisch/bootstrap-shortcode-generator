@@ -21,10 +21,12 @@ Author URI: http://pluginchief.com/
 	define('PLUGINCHIEFTBSC_URL', plugin_dir_url(__FILE__));
 	define('PLUGINCHIEFTBSC_PATH', plugin_dir_path(__FILE__));
 
-	require_once 'plugin-update-checker.php';
+
 // -------------------------------------------------------------------- //
 //	Init the updater
 // -------------------------------------------------------------------- //
+	require_once 'plugin-update-checker.php';
+
 	function pluginchieftbsc_plugin_updater() {
 		if (class_exists('PluginUpdateChecker')) {
 
@@ -32,3 +34,13 @@ Author URI: http://pluginchief.com/
 		}
 	}
 	add_action('plugins_loaded','pluginchieftbsc_plugin_updater');
+
+// -------------------------------------------------------------------- //
+//	Register | Enqueue : Styles | Scripts
+// -------------------------------------------------------------------- //
+	wp_register_style('boostrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
+	wp_register_script('bootstrap_js', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js');
+
+	# Enqueue
+	wp_enqueue_style('bootstrap_css');
+	wp_enqueue_script('bootstrap_js');
