@@ -20,12 +20,21 @@ Author URI: http://pluginchief.com/
 	// NOTE: PLUGINCHIEFTBSC = PluginChief Twitter Bootstrap Shortcodes
 	define('PLUGINCHIEFTBSC_URL', plugin_dir_url(__FILE__));
 	define('PLUGINCHIEFTBSC_PATH', plugin_dir_path(__FILE__));
-
+	define('PLUGINCHIEFTBSC_PATH_ABC', plugin_dir_url(__FILE__));
+	define('THMCHF_TINYMCE_PATH', PLUGINCHIEFTBSC_PATH . 'inc/shortcodes/shortcode-generator/');
 
 // -------------------------------------------------------------------- //
 //	Init the updater
 // -------------------------------------------------------------------- //
-	require_once 'plugin-update-checker.php';
+	if (is_admin()) {
+	require_once PLUGINCHIEFTBSC_PATH . 'plugin-update-checker.php';
+	require_once PLUGINCHIEFTBSC_PATH . 'inc/shortcodes/shortcodes.php';
+	require_once PLUGINCHIEFTBSC_PATH . 'inc/shortcodes/shortcode-generator/shortcode-generator.php';
+	require_once( THMCHF_TINYMCE_PATH . 'shortcode-generator.class.php' );		// TinyMCE wrapper class
+	new thmchf_tinymce();														// do the magic
+
+}
+
 
 	function pluginchieftbsc_plugin_updater() {
 		if (class_exists('PluginUpdateChecker')) {
@@ -36,11 +45,17 @@ Author URI: http://pluginchief.com/
 	add_action('plugins_loaded','pluginchieftbsc_plugin_updater');
 
 // -------------------------------------------------------------------- //
-//	Register | Enqueue : Styles | Scripts
+//	Register | Enqueue : Styles | Scripts DEVELOPMENT ONLY!!!
 // -------------------------------------------------------------------- //
-	wp_register_style('boostrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
-	wp_register_script('bootstrap_js', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js');
+	function pluginchieftbsc_scripts_styles() {
 
-	# Enqueue
-	wp_enqueue_style('bootstrap_css');
-	wp_enqueue_script('bootstrap_js');
+		wp_register_style('bootstrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
+		wp_register_script('bootstrap_js', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js');
+
+		# Enqueue
+		wp_enqueue_style('bootstrap_css');
+		wp_enqueue_script('bootstrap_js');
+
+		}
+
+		add_action('wp_enqueue_scripts', 'pluginchieftbsc_scripts_styles');
