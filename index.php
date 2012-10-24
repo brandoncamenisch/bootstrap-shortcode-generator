@@ -49,13 +49,17 @@ Author URI: http://pluginchief.com/
 //	Register | Enqueue : Styles | Scripts DEVELOPMENT ONLY!!!
 // -------------------------------------------------------------------- //
 	function pluginchieftbsc_scripts_styles() {
-		if (WP_DEVELOPMENT) {
+		if ( 1 < 2 ){
+			wp_register_style('bootstrap_css', PLUGINCHIEFTBSC_URL . 'inc/styles/bootstrap.combined.min.css');
+			#wp_register_script('bootstrap_js', PLUGINCHIEFTBSC_URL . 'inc/scripts/bootstrap.min.js');
+			wp_register_script( 'jquery', '//code.jquery.com/jquery-latest.min.js');
 
-			wp_register_style('bootstrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
+			#wp_register_style('bootstrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
 			wp_register_script('bootstrap_js', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js');
 
 			# Enqueue
 			wp_enqueue_style('bootstrap_css');
+			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script('bootstrap_js');
 		}
 	}

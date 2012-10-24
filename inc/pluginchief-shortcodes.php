@@ -59,7 +59,7 @@ if (!function_exists('pluginchief_buttons_group')) {
   function pluginchief_buttons_group( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
-    
+
     return '<div class="btn-group">'. do_shortcode($content) .'</div>';
   }
   add_shortcode( 'pluginchief_buttons_group', 'pluginchief_buttons_group' );
@@ -103,18 +103,18 @@ if (!function_exists('pluginchief_tabs')) {
   function pluginchief_tabs( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
-    
+
     // Extract the tab titles for use in the tab widget.
     preg_match_all( '/tab title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
-    
+
     $tab_titles = array();
     if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
-    
+
     // Add active attribute to first tab content
     $content = preg_replace('/(pluginchief_tab)/', '${1} first="true" ', $content, 1);
 
     $output = '<div class="tabable">';
-    
+
     if( count($tab_titles) ){
       $output .= '<ul class="nav nav-tabs">';
 
@@ -131,7 +131,7 @@ if (!function_exists('pluginchief_tabs')) {
     } else {
       $output .= do_shortcode( $content );
     }
-    
+
     $output .= '</div>'; // End tabable
 
     return $output;
@@ -141,12 +141,12 @@ if (!function_exists('pluginchief_tabs')) {
 
 if (!function_exists('pluginchief_tab')) {
   function pluginchief_tab( $atts, $content = null ) {
-    $defaults = array( 
+    $defaults = array(
       'title' => 'Tab',
       'first' => ''
     );
     extract( shortcode_atts( $defaults, $atts ) );
-    
+
     // Check if this is first tab, and give it an active class
     $activeClass = ( $first === 'true' ) ? 'active in' : '';
 
@@ -166,7 +166,7 @@ if (!function_exists('pluginchief_accordions')) {
   function pluginchief_accordions( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
-    
+
     // Add active attribute to first accordion content
     $content = preg_replace('/(pluginchief_accordion)/', '${1} first="true" ', $content, 1);
 
@@ -177,7 +177,7 @@ if (!function_exists('pluginchief_accordions')) {
 
 if (!function_exists('pluginchief_accordion')) {
   function pluginchief_accordion( $atts, $content = null ) {
-    $defaults = array( 
+    $defaults = array(
       'title' => 'Accordion Title',
       'first' => ''
     );
@@ -217,7 +217,7 @@ if (!function_exists('pluginchief_accordion')) {
 
 if (!function_exists('pluginchief_toggle')) {
   function pluginchief_toggle( $atts, $content = null ) {
-    $defaults = array( 
+    $defaults = array(
       'title' => 'Toggle Title',
       'first' => ''
     );
@@ -259,7 +259,7 @@ if (!function_exists('pluginchief_rows')) {
   function pluginchief_rows( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
-    
+
     wp_enqueue_style('shortcode-style');
 
     return '<div class="row-fluid">'. do_shortcode($content) .'</div>';
