@@ -29,7 +29,7 @@ $pluginchief_shortcodes['alert'] = array(
       'label' => __('Alert Text', 'pluginchief'),
       'desc' => __('Add the alert\'s text.  You can also insert html tag here.', 'pluginchief'),
     )
-    
+
   ),
   'shortcode' => '[pluginchief_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/pluginchief_alert]',
   'popup_title' => __('Insert Alert Shortcode', 'pluginchief')
@@ -70,7 +70,8 @@ $pluginchief_shortcodes['button'] = array(
         'default' => 'Default',
         'mini' => 'Mini',
         'small' => 'Small',
-        'large' => 'Large'
+        'large' => 'Large',
+        'block' => 'Block'
       )
     ),
     'target' => array(
