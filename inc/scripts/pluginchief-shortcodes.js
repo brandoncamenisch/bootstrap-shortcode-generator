@@ -29,6 +29,7 @@
           a.addWithPopup( b, "Toggle", "toggle" );
           a.addWithPopup( b, "Accordion", "accordion" );
           a.addWithPopup( b, "Columns", "columns" );
+          a.addWithPopup( b, "Well", "well" );
           a.addImmediate( b, "Horizontal Rule", "[hr]" );
         });
 

@@ -27,6 +27,25 @@ if (!function_exists('pluginchief_alert')) {
 }
 
 /*-----------------------------------------------------------------------------------*/
+/*  Well Shortcode
+/*-----------------------------------------------------------------------------------*/
+
+if (!function_exists('pluginchief_well')) {
+  function pluginchief_well( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+      'style'   => 'default'
+    ), $atts));
+
+    $output  = '<div class="well well-'. $style .'">';
+    $output .= do_shortcode($content);
+    $output .= '</div>';
+
+    return $output;
+  }
+  add_shortcode('pluginchief_well', 'pluginchief_well');
+}
+
+/*-----------------------------------------------------------------------------------*/
 /*  Button Shortcode
 /*-----------------------------------------------------------------------------------*/
 

@@ -3,7 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 /*  Alert Config
 /*-----------------------------------------------------------------------------------*/
-
 $pluginchief_shortcodes['alert'] = array(
   'no_preview' => true,
   'params' => array(
@@ -33,6 +32,32 @@ $pluginchief_shortcodes['alert'] = array(
   ),
   'shortcode' => '[pluginchief_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/pluginchief_alert]',
   'popup_title' => __('Insert Alert Shortcode', 'pluginchief')
+);
+/*-----------------------------------------------------------------------------------*/
+/*  Well
+/*-----------------------------------------------------------------------------------*/
+$pluginchief_shortcodes['well'] = array(
+  'no_preview' => true,
+  'params' => array(
+    'style' => array(
+      'type' => 'select',
+      'label' => __('Well style', 'pluginchief'),
+      'desc' => __('Select well\'s style, ie the label\'s colour.'),
+      'options' => array(
+        'default' => 'Default',
+        'large' => 'Large',
+        'small' => 'Small'
+      )
+    ),
+    'content' => array(
+      'std' => 'Well Text',
+      'type' => 'textarea',
+      'label' => __('Well\'s Text', 'pluginchief'),
+      'desc' => __('Add the well\'s text', 'pluginchief')
+    )
+  ),
+  'shortcode' => '[pluginchief_well style="{{style}}"] {{content}} [/pluginchief_well]',
+  'popup_title' => __('Insert Well Shortcode', 'pluginchief')
 );
 
 /*-----------------------------------------------------------------------------------*/
