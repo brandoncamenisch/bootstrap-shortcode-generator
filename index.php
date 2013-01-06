@@ -27,7 +27,6 @@ Author URI: http://pluginchief.com/
 	if (is_admin()) {
 
 		#updater
-		require_once PLUGINCHIEFTBSC_PATH . 'inc/plugin-update-checker.php';
 		require_once PLUGINCHIEFTBSC_PATH . 'inc/pluginchief-shortcode-generator.php';
 
 	}

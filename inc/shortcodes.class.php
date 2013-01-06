@@ -42,7 +42,7 @@ class pluginchief_shortcodes
 
   function formate_shortcode()
   {
-    // get config file
+    #get config file
     require_once( $this->conf );
 
     if( isset( $pluginchief_shortcodes[$this->popup]['child_shortcode'] ) )
@@ -50,11 +50,11 @@ class pluginchief_shortcodes
 
     if( isset( $pluginchief_shortcodes ) && is_array( $pluginchief_shortcodes ) )
     {
-      // get shortcode config stuff
-      $this->params = $pluginchief_shortcodes[$this->popup]['params'];
-      $this->shortcode = $pluginchief_shortcodes[$this->popup]['shortcode'];
-      $this->popup_title = $pluginchief_shortcodes[$this->popup]['popup_title'];
-      $this->description = $pluginchief_shortcodes[$this->popup]['description'];
+      #get shortcode config stuff
+      $this->params 		 =& $pluginchief_shortcodes[$this->popup]['params'];
+      $this->shortcode   =& $pluginchief_shortcodes[$this->popup]['shortcode'];
+      $this->popup_title =& $pluginchief_shortcodes[$this->popup]['popup_title'];
+      $this->description =& $pluginchief_shortcodes[$this->popup]['description'];
 
       // adds stuff for js use
       $this->append_output( "\n" . '<div id="_pluginchief_shortcode" class="hidden">' . $this->shortcode . '</div>' );
@@ -65,7 +65,7 @@ class pluginchief_shortcodes
         $this->no_preview = true;
       }
 
-      // Build description row
+      #Build description row
       if( $this->description ) {
         $desc_output  = '<tbody>' . "\n";
         $desc_output .= '<tr class="form-row row-description">' . "\n";
@@ -74,7 +74,7 @@ class pluginchief_shortcodes
         $desc_output .= '<p>' . $this->description['desc'] . '</p>' . "\n";
         $desc_output .= '</td>' . "\n";
 
-        // If description have thumbnail
+        #If description have thumbnail
         if( $this->description['thumb'] ) {
           $desc_output .= '<td><img src="' . PLUGINCHIEFTBSC_URL . 'js/shortcode/images/' . $this->description['thumb'] . '" alt="Description thumbnail"></td>' . "\n";
         }
@@ -85,19 +85,26 @@ class pluginchief_shortcodes
         $this->append_output( $desc_output );
       }
 
-      // filters and excutes params
+      #filters and excutes params
       foreach( $this->params as $pkey => $param )
       {
-        // prefix the fields names and ids with pluginchief_
+        #prefix the fields names and ids with pluginchief_
         $pkey = 'pluginchief_' . $pkey;
 
-        // popup form row start
+        #popup form row start
+        $param['collapsible'] =& $param['collapsible'];
+        $param['label']				=& $param['label'];
+        $param['desc']				=& $param['desc'];
+        $param['type']				=& $param['type'];
+        $param['std']					=& $param['std'];
+        $param['show_opt']		=& $param['show_opt'];
+
         $row_start  = '<tbody class="'. ( $param['collapsible'] ? 'pluginchief-collapsible' : '' ) .'">' . "\n";
         $row_start .= '<tr class="form-row">' . "\n";
         $row_start .= '<td class="label">' . $param['label'] . '</td>' . "\n";
         $row_start .= '<td class="field">' . "\n";
 
-        // popup form row end
+        #popup form row end
         $row_end    = '<span class="pluginchief-form-desc">' . $param['desc'] . '</span>' . "\n";
         $row_end   .= '</td>' . "\n";
         $row_end   .= '</tr>' . "\n";
@@ -107,32 +114,32 @@ class pluginchief_shortcodes
         {
           case 'text' :
 
-            // prepare
-            $output  = $row_start;
+            #prepare
+            $output  =& $row_start;
             $output .= '<input type="text" class="pluginchief-form-text pluginchief-input" name="' . $pkey . '" id="' . $pkey . '" value="' . $param['std'] . '" />' . "\n";
             $output .= $row_end;
 
-            // append
+            #append
             $this->append_output( $output );
 
             break;
 
           case 'textarea' :
 
-            // prepare
-            $output  = $row_start;
+            #prepare
+            $output  =& $row_start;
             $output .= '<textarea rows="10" cols="30" name="' . $pkey . '" id="' . $pkey . '" class="pluginchief-form-textarea pluginchief-input">' . $param['std'] . '</textarea>' . "\n";
             $output .= $row_end;
 
-            // append
+            #append
             $this->append_output( $output );
 
             break;
 
           case 'select' :
 
-            // prepare
-            $output  = $row_start;
+            #prepare
+            $output  =& $row_start;
             $output .= '<select name="' . $pkey . '" id="' . $pkey . '" class="pluginchief-form-select pluginchief-input">' . "\n";
 
             foreach( $param['options'] as $value => $option )
@@ -143,29 +150,29 @@ class pluginchief_shortcodes
             $output .= '</select>' . "\n";
             $output .= $row_end;
 
-            // append
+            #append
             $this->append_output( $output );
 
             break;
 
           case 'checkbox' :
 
-            // prepare
-            $output  = $row_start;
+            #prepare
+            $output  =& $row_start;
             $output .= '<label for="' . $pkey . '" class="pluginchief-form-checkbox '. ( $param['show_opt'] ? 'pluginchief-collapse-button' : '' ) .'">' . "\n";
             $output .= '<input type="checkbox" class="pluginchief-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' rel="pluginchief_'.  $param['show_opt'] .'" />' . "\n";
             $output .= ' ' . $param['checkbox_text'] . '</label>' . "\n";
             $output .= $row_end;
 
-            // append
+            #append
             $this->append_output( $output );
 
             break;
 
           case 'icon' :
 
-            // prepare
-            $output  = $row_start;
+            #prepare
+            $output  =& $row_start;
             $output .= '<ul class="the-icons '. $pkey .'">' . "\n";
             foreach( $this->icon_list as $icon ) {
               $output .= '<li><span class="' . $icon . '"></span></li>';
@@ -174,21 +181,21 @@ class pluginchief_shortcodes
             $output .= '<input type="hidden" class="pluginchief-input" id="'. $pkey .'" value="">';
             $output .= $row_end;
 
-            // append
+            #append
             $this->append_output( $output );
 
             break;
         }
       }
 
-      // checks if has a child shortcode
+      #checks if has a child shortcode
       if( isset( $pluginchief_shortcodes[$this->popup]['child_shortcode'] ) )
       {
-        // set child shortcode
+        #set child shortcode
         $this->cparams = $pluginchief_shortcodes[$this->popup]['child_shortcode']['params'];
         $this->cshortcode = $pluginchief_shortcodes[$this->popup]['child_shortcode']['shortcode'];
 
-        // popup parent form row start
+        #popup parent form row start
         $prow_start  = '<tbody>' . "\n";
         $prow_start .= '<tr class="form-row has-child">' . "\n";
         $prow_start .= '<td><a href="#" id="form-child-add" class="button-secondary">' . $pluginchief_shortcodes[$this->popup]['child_shortcode']['clone_button'] . '</a>' . "\n";
@@ -210,17 +217,19 @@ class pluginchief_shortcodes
         foreach( $this->cparams as $cpkey => $cparam )
         {
 
-          // prefix the fields names and ids with pluginchief_
+          #prefix the fields names and ids with pluginchief_
           $cpkey = 'pluginchief_' . $cpkey;
-
-          // popup form row start
+          $cparam['collapsible'] =& $cparam['collapsible'];
+          $cparam['label']			 =& $cparam['label'];
+          $cparam['desc']				 =& $cparam['desc'];
+          #popup form row start
           $crow_start  = '<li class="child-clone-row-form-row '. ( $cparam['collapsible'] ? 'pluginchief-collapsible' : '' ) .'">' . "\n";
           $crow_start .= '<div class="child-clone-row-label">' . "\n";
           $crow_start .= '<label>' . $cparam['label'] . '</label>' . "\n";
           $crow_start .= '</div>' . "\n";
           $crow_start .= '<div class="child-clone-row-field">' . "\n";
 
-          // popup form row end
+          #popup form row end
           $crow_end    = '<span class="child-clone-row-desc">' . $cparam['desc'] . '</span>' . "\n";
           $crow_end   .= '</div>' . "\n";
           $crow_end   .= '</li>' . "\n";
@@ -229,32 +238,32 @@ class pluginchief_shortcodes
           {
             case 'text' :
 
-              // prepare
-              $coutput  = $crow_start;
+              #prepare
+              $coutput  =& $crow_start;
               $coutput .= '<input type="text" class="pluginchief-form-text pluginchief-cinput" name="' . $cpkey . '" id="' . $cpkey . '" value="' . $cparam['std'] . '" />' . "\n";
               $coutput .= $crow_end;
 
-              // append
+              #append
               $this->append_output( $coutput );
 
               break;
 
             case 'textarea' :
 
-              // prepare
+              #prepare
               $coutput  = $crow_start;
               $coutput .= '<textarea rows="10" cols="30" name="' . $cpkey . '" id="' . $cpkey . '" class="pluginchief-form-textarea pluginchief-cinput">' . $cparam['std'] . '</textarea>' . "\n";
               $coutput .= $crow_end;
 
-              // append
+              #append
               $this->append_output( $coutput );
 
               break;
 
             case 'select' :
 
-              // prepare
-              $coutput  = $crow_start;
+              #prepare
+              $coutput  =& $crow_start;
               $coutput .= '<select name="' . $cpkey . '" id="' . $cpkey . '" class="pluginchief-form-select pluginchief-cinput">' . "\n";
 
               foreach( $cparam['options'] as $value => $option )
@@ -265,29 +274,33 @@ class pluginchief_shortcodes
               $coutput .= '</select>' . "\n";
               $coutput .= $crow_end;
 
-              // append
+              #append
               $this->append_output( $coutput );
 
               break;
 
             case 'checkbox' :
 
-              // prepare
-              $coutput  = $crow_start;
+              #prepare
+              $coutput  =& $crow_start;
+              $cparam['show_opt'] 		 =& $cparam['show_opt'];
+              $cparam['std']					 =& $cparam['std'];
+              $cparam['checkbox_text'] =& $cparam['checkbox_text'];
+
               $coutput .= '<label for="' . $cpkey . '" class="pluginchief-form-checkbox '. ( $cparam['show_opt'] ? 'pluginchief-collapse-button' : '' ) .'">' . "\n";
               $coutput .= '<input type="checkbox" class="pluginchief-cinput" name="' . $cpkey . '" id="' . $cpkey . '" ' . ( $cparam['std'] ? 'checked' : '' ) . ' rel="pluginchief_'.  $cparam['show_opt'] .'" />' . "\n";
               $coutput .= ' ' . $cparam['checkbox_text'] . '</label>' . "\n";
               $coutput .= $crow_end;
 
-              // append
+              #append
               $this->append_output( $coutput );
 
               break;
 
             case 'icon' :
 
-              // prepare
-              $coutput  = $crow_start;
+              #prepare
+              $coutput  =& $crow_start;
               $coutput .= '<ul class="the-icons '. $cpkey .'">' . "\n";
               foreach( $this->icon_list as $icon ) {
                 $coutput .= '<li><span class="' . $icon . '"></span></li>';
@@ -296,7 +309,7 @@ class pluginchief_shortcodes
               $coutput .= '<input type="hidden" class="pluginchief-cinput" id="'. $cpkey .'" value="">';
               $coutput .= $crow_end;
 
-              // append
+              #append
               $this->append_output( $coutput );
 
               break;
@@ -304,18 +317,18 @@ class pluginchief_shortcodes
           }
         }
 
-        // popup parent form row end
-        $prow_end    = '</ul>' . "\n";    // end .child-clone-row-form
+        #popup parent form row end
+        $prow_end    = '</ul>' . "\n";    #end .child-clone-row-form
         $prow_end   .= '<a href="#" class="child-clone-row-remove">Remove</a>' . "\n";
-        $prow_end   .= '</div>' . "\n";   // end .child-clone-row-inside
-        $prow_end   .= '</div>' . "\n";   // end .child-clone-row
+        $prow_end   .= '</div>' . "\n";   #end .child-clone-row-inside
+        $prow_end   .= '</div>' . "\n";   #end .child-clone-row
 
-        $prow_end   .= '</div>' . "\n";   // end .child-clone-rows
+        $prow_end   .= '</div>' . "\n";   #end .child-clone-rows
         $prow_end   .= '</td>' . "\n";
         $prow_end   .= '</tr>' . "\n";
         $prow_end   .= '</tbody>' . "\n";
 
-        // add $prow_end to output
+        #add $prow_end to output
         $this->append_output( $prow_end );
       }
     }
