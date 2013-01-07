@@ -29,7 +29,6 @@ if (!function_exists('pluginchief_alert')) {
 /*-----------------------------------------------------------------------------------*/
 /*  Well Shortcode
 /*-----------------------------------------------------------------------------------*/
-
 if (!function_exists('pluginchief_well')) {
   function pluginchief_well( $atts, $content = null ) {
     extract(shortcode_atts(array(

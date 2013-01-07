@@ -26,6 +26,7 @@
           a.addWithPopup( b, "Button Group", "buttons_group" );
           a.addWithPopup( b, "Inline label", "label" );
           a.addWithPopup( b, "Tabs", "tabs" );
+          a.addWithPopup( b, "Badge", "badge" );
           a.addWithPopup( b, "Toggle", "toggle" );
           a.addWithPopup( b, "Accordion", "accordion" );
           a.addWithPopup( b, "Columns", "columns" );
