@@ -20,24 +20,10 @@ Author URI: http://brandoncamenisch.com/
 //	Includes
 // -------------------------------------------------------------------- //
 	if (is_admin()) {
-
-		#updater
 		require_once PLUGINCHIEFTBSC_PATH . 'inc/pluginchief-shortcode-generator.php';
-
 	}
 	#require on front-end
 	require_once PLUGINCHIEFTBSC_PATH . 'inc/pluginchief-shortcodes.php';
-
-// -------------------------------------------------------------------- //
-//	Init the updater
-// -------------------------------------------------------------------- //
-	function pluginchieftbsc_plugin_updater() {
-		if (class_exists('PluginUpdateChecker')) {
-
-			$PluginChieftwitterbootstrap = new PluginUpdateChecker( 'https://pluginchief.com/wp-content/plugins/pluginchief-updatechief/json/pluginchief-twitter-bootstrap-shortcodes.json', __FILE__,'pluginchief-twitter-bootstrap-shortcodes');
-		}
-	}
-	add_action('plugins_loaded','pluginchieftbsc_plugin_updater');
 
 // -------------------------------------------------------------------- //
 //	Register | Enqueue : Styles | Scripts DEVELOPMENT ONLY!!!
