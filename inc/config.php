@@ -3,13 +3,13 @@
 /*-----------------------------------------------------------------------------------*/
 /*  Alert Config
 /*-----------------------------------------------------------------------------------*/
-$pluginchief_shortcodes['alert'] = array(
+$mountaininja_shortcodes['alert'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Alert Style', 'pluginchief'),
-      'desc' => __('Select the alert\'s type, ie the alert colour', 'pluginchief'),
+      'label' => __('Alert Style', 'mountaininja'),
+      'desc' => __('Select the alert\'s type, ie the alert colour', 'mountaininja'),
       'options' => array(
         'warning' => 'Warning',
         'error' => 'Error',
@@ -19,29 +19,29 @@ $pluginchief_shortcodes['alert'] = array(
     ),
     'dismiss' => array(
       'type' => 'checkbox',
-      'label' => __('Dismissable', 'pluginchief'),
-      'checkbox_text' => __('Is the allert dismissable? Visitor can close the alert', 'pluginchief')
+      'label' => __('Dismissable', 'mountaininja'),
+      'checkbox_text' => __('Is the allert dismissable? Visitor can close the alert', 'mountaininja')
     ),
     'content' => array(
       'std' => 'Alert text',
       'type' => 'textarea',
-      'label' => __('Alert Text', 'pluginchief'),
-      'desc' => __('Add the alert\'s text.  You can also insert html tag here.', 'pluginchief'),
+      'label' => __('Alert Text', 'mountaininja'),
+      'desc' => __('Add the alert\'s text.  You can also insert html tag here.', 'mountaininja'),
     )
 
   ),
-  'shortcode' => '[pluginchief_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/pluginchief_alert]',
-  'popup_title' => __('Insert Alert Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/mountaininja_alert]',
+  'popup_title' => __('Insert Alert Shortcode', 'mountaininja')
 );
 /*-----------------------------------------------------------------------------------*/
 /*  Well
 /*-----------------------------------------------------------------------------------*/
-$pluginchief_shortcodes['well'] = array(
+$mountaininja_shortcodes['well'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Well style', 'pluginchief'),
+      'label' => __('Well style', 'mountaininja'),
       'desc' => __('Select well\'s style, ie the label\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -52,31 +52,31 @@ $pluginchief_shortcodes['well'] = array(
     'content' => array(
       'std' => 'Well Text',
       'type' => 'textarea',
-      'label' => __('Well\'s Text', 'pluginchief'),
-      'desc' => __('Add the well\'s text', 'pluginchief')
+      'label' => __('Well\'s Text', 'mountaininja'),
+      'desc' => __('Add the well\'s text', 'mountaininja')
     )
   ),
-  'shortcode' => '[pluginchief_well style="{{style}}"] {{content}} [/pluginchief_well]',
-  'popup_title' => __('Insert Well Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_well style="{{style}}"] {{content}} [/mountaininja_well]',
+  'popup_title' => __('Insert Well Shortcode', 'mountaininja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Button Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['button'] = array(
+$mountaininja_shortcodes['button'] = array(
   'no_preview' => true,
   'params' => array(
     'url' => array(
       'std' => '',
       'type' => 'text',
-      'label' => __('Button URL', 'pluginchief'),
-      'desc' => __('Add the button\'s url eg http://example.com', 'pluginchief')
+      'label' => __('Button URL', 'mountaininja'),
+      'desc' => __('Add the button\'s url eg http://example.com', 'mountaininja')
     ),
     'style' => array(
       'type' => 'select',
-      'label' => __('Button Style', 'pluginchief'),
-      'desc' => __('Select the button\'s style, ie the button\'s colour', 'pluginchief'),
+      'label' => __('Button Style', 'mountaininja'),
+      'desc' => __('Select the button\'s style, ie the button\'s colour', 'mountaininja'),
       'options' => array(
         'default' => 'Default button',
         'primary' => 'Primary button',
@@ -89,8 +89,8 @@ $pluginchief_shortcodes['button'] = array(
     ),
     'size' => array(
       'type' => 'select',
-      'label' => __('Button Size', 'pluginchief'),
-      'desc' => __('Select the button\'s size', 'pluginchief'),
+      'label' => __('Button Size', 'mountaininja'),
+      'desc' => __('Select the button\'s size', 'mountaininja'),
       'options' => array(
         'default' => 'Default',
         'mini' => 'Mini',
@@ -101,8 +101,8 @@ $pluginchief_shortcodes['button'] = array(
     ),
     'target' => array(
       'type' => 'select',
-      'label' => __('Button Target', 'pluginchief'),
-      'desc' => __('_self = open in same window. _blank = open in new window', 'pluginchief'),
+      'label' => __('Button Target', 'mountaininja'),
+      'desc' => __('_self = open in same window. _blank = open in new window', 'mountaininja'),
       'options' => array(
         '_self' => '_self',
         '_blank' => '_blank'
@@ -111,35 +111,35 @@ $pluginchief_shortcodes['button'] = array(
     'content' => array(
       'std' => 'Button Text',
       'type' => 'text',
-      'label' => __('Button\'s Text', 'pluginchief'),
-      'desc' => __('Add the button\'s text', 'pluginchief'),
+      'label' => __('Button\'s Text', 'mountaininja'),
+      'desc' => __('Add the button\'s text', 'mountaininja'),
     ),
     'enable_icon' => array(
       'type' => 'checkbox',
-      'label' => __('Button\'s Icon', 'pluginchief'),
-      'checkbox_text' => __('Enable icon for button?', 'pluginchief'),
+      'label' => __('Button\'s Icon', 'mountaininja'),
+      'checkbox_text' => __('Enable icon for button?', 'mountaininja'),
       'show_opt' => 'icon'
     ),
     'icon' => array(
       'type' => 'icon',
       'collapsible' => true,
-      'label' => __('Choose Icon', 'pluginchief')
+      'label' => __('Choose Icon', 'mountaininja')
     )
   ),
-  'shortcode' => '[pluginchief_button url="{{url}}" style="{{style}}" size="{{size}}" target="{{target}}" icon="{{icon}}"] {{content}} [/pluginchief_button]',
-  'popup_title' => __('Insert Button Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_button url="{{url}}" style="{{style}}" size="{{size}}" target="{{target}}" icon="{{icon}}"] {{content}} [/mountaininja_button]',
+  'popup_title' => __('Insert Button Shortcode', 'mountaininja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Inline Label Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['label'] = array(
+$mountaininja_shortcodes['label'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Label style', 'pluginchief'),
+      'label' => __('Label style', 'mountaininja'),
       'desc' => __('Select label\'s style, ie the label\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -152,24 +152,24 @@ $pluginchief_shortcodes['label'] = array(
     'content' => array(
       'std' => 'Label Text',
       'type' => 'text',
-      'label' => __('Label\'s Text', 'pluginchief'),
-      'desc' => __('Add the label\'s text', 'pluginchief')
+      'label' => __('Label\'s Text', 'mountaininja'),
+      'desc' => __('Add the label\'s text', 'mountaininja')
     )
   ),
-  'shortcode' => '[pluginchief_label style="{{style}}"] {{content}} [/pluginchief_label]',
-  'popup_title' => __('Insert Inline Label Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_label style="{{style}}"] {{content}} [/mountaininja_label]',
+  'popup_title' => __('Insert Inline Label Shortcode', 'mountaininja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Badges Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['badge'] = array(
+$mountaininja_shortcodes['badge'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Badge style', 'pluginchief'),
+      'label' => __('Badge style', 'mountaininja'),
       'desc' => __('Select badge\'s style, ie the badge\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -182,41 +182,41 @@ $pluginchief_shortcodes['badge'] = array(
     'content' => array(
       'std' => 'Badge Text',
       'type' => 'text',
-      'label' => __('Badge\'s Text', 'pluginchief'),
-      'desc' => __('Add the badge\'s text', 'pluginchief')
+      'label' => __('Badge\'s Text', 'mountaininja'),
+      'desc' => __('Add the badge\'s text', 'mountaininja')
     )
   ),
-  'shortcode' => '[pluginchief_badge style="{{style}}"] {{content}} [/pluginchief_badge]',
-  'popup_title' => __('Insert Badge Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_badge style="{{style}}"] {{content}} [/mountaininja_badge]',
+  'popup_title' => __('Insert Badge Shortcode', 'mountaininja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Tabs Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['tabs'] = array(
+$mountaininja_shortcodes['tabs'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_tabs] {{child_shortcode}} [/pluginchief_tabs]',
-  'popup_title' => __('Insert Tab Shortcode', 'pluginchief'),
+  'shortcode' => '[mountaininja_tabs] {{child_shortcode}} [/mountaininja_tabs]',
+  'popup_title' => __('Insert Tab Shortcode', 'mountaininja'),
 
   'child_shortcode' => array(
     'params' => array(
       'title' => array(
           'std' => 'Title',
           'type' => 'text',
-          'label' => __('Tab Title', 'pluginchief'),
-          'desc' => __('Title of the tab', 'pluginchief')
+          'label' => __('Tab Title', 'mountaininja'),
+          'desc' => __('Title of the tab', 'mountaininja')
       ),
       'content' => array(
           'std' => 'Tab content',
           'type' => 'textarea',
-          'label' => __('Tab Content', 'pluginchief'),
-          'desc' => __('Add the tabs content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Tab Content', 'mountaininja'),
+          'desc' => __('Add the tabs content, you can also insert html tag.', 'mountaininja')
       )
     ),
-    'shortcode' => '[pluginchief_tab title="{{title}}"] {{content}} [/pluginchief_tab]',
-    'clone_button' => __('Add Tab', 'pluginchief')
+    'shortcode' => '[mountaininja_tab title="{{title}}"] {{content}} [/mountaininja_tab]',
+    'clone_button' => __('Add Tab', 'mountaininja')
   )
 );
 
@@ -224,53 +224,53 @@ $pluginchief_shortcodes['tabs'] = array(
 /*  Toggle Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['toggle'] = array(
+$mountaininja_shortcodes['toggle'] = array(
   'no_preview' => true,
   'params' => array(
     'title' => array(
       'std' => 'Toggle Title',
       'type' => 'text',
-      'label' => __('Toggle\'s Title', 'pluginchief'),
-      'desc' => __('Add the toggle\'s title', 'pluginchief')
+      'label' => __('Toggle\'s Title', 'mountaininja'),
+      'desc' => __('Add the toggle\'s title', 'mountaininja')
     ),
     'content' => array(
       'std' => 'Toggle content',
       'type' => 'textarea',
-      'label' => __('Toggle\'s Content', 'pluginchief'),
-      'desc' => __('Add the toggle\'s content', 'pluginchief')
+      'label' => __('Toggle\'s Content', 'mountaininja'),
+      'desc' => __('Add the toggle\'s content', 'mountaininja')
     )
   ),
-  'shortcode' => '[pluginchief_toggle title="{{title}}"] {{content}} [/pluginchief_toggle]',
-  'popup_title' => __('Insert Toggle Shortcode', 'pluginchief')
+  'shortcode' => '[mountaininja_toggle title="{{title}}"] {{content}} [/mountaininja_toggle]',
+  'popup_title' => __('Insert Toggle Shortcode', 'mountaininja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Accordion Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['accordion'] = array(
+$mountaininja_shortcodes['accordion'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_accordions] {{child_shortcode}} [/pluginchief_accordions]',
-  'popup_title' => __('Insert Accordion Shortcode', 'pluginchief'),
+  'shortcode' => '[mountaininja_accordions] {{child_shortcode}} [/mountaininja_accordions]',
+  'popup_title' => __('Insert Accordion Shortcode', 'mountaininja'),
 
   'child_shortcode' => array(
     'params' => array(
       'title' => array(
           'std' => 'Title',
           'type' => 'text',
-          'label' => __('Accordion Title', 'pluginchief'),
-          'desc' => __('Title of the accordion', 'pluginchief')
+          'label' => __('Accordion Title', 'mountaininja'),
+          'desc' => __('Title of the accordion', 'mountaininja')
       ),
       'content' => array(
           'std' => 'Accordion content',
           'type' => 'textarea',
-          'label' => __('Accordion Content', 'pluginchief'),
-          'desc' => __('Add the accordion content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Accordion Content', 'mountaininja'),
+          'desc' => __('Add the accordion content, you can also insert html tag.', 'mountaininja')
       )
     ),
-    'shortcode' => '[pluginchief_accordion title="{{title}}"] {{content}} [/pluginchief_accordion]',
-    'clone_button' => __('Add Accordion', 'pluginchief')
+    'shortcode' => '[mountaininja_accordion title="{{title}}"] {{content}} [/mountaininja_accordion]',
+    'clone_button' => __('Add Accordion', 'mountaininja')
   )
 );
 
@@ -278,16 +278,16 @@ $pluginchief_shortcodes['accordion'] = array(
 /*  Buttons Group Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['buttons_group'] = array(
+$mountaininja_shortcodes['buttons_group'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_buttons_group] {{child_shortcode}} [/pluginchief_buttons_group]',
-  'popup_title' => __('Insert Buttons Group Shortcode', 'pluginchief'),
+  'shortcode' => '[mountaininja_buttons_group] {{child_shortcode}} [/mountaininja_buttons_group]',
+  'popup_title' => __('Insert Buttons Group Shortcode', 'mountaininja'),
 
   'child_shortcode' => array(
-    'params' => $pluginchief_shortcodes['button']['params'],
-    'shortcode' => $pluginchief_shortcodes['button']['shortcode'],
-    'clone_button' => __('Add Button', 'pluginchief')
+    'params' => $mountaininja_shortcodes['button']['params'],
+    'shortcode' => $mountaininja_shortcodes['button']['shortcode'],
+    'clone_button' => __('Add Button', 'mountaininja')
   )
 );
 
@@ -295,18 +295,18 @@ $pluginchief_shortcodes['buttons_group'] = array(
 /*  Columns Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['columns'] = array(
+$mountaininja_shortcodes['columns'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_rows] {{child_shortcode}} [/pluginchief_rows]',
-  'popup_title' => __('Insert Columns Shortcode', 'pluginchief'),
+  'shortcode' => '[mountaininja_rows] {{child_shortcode}} [/mountaininja_rows]',
+  'popup_title' => __('Insert Columns Shortcode', 'mountaininja'),
 
   'child_shortcode' => array(
     'params' => array(
       'column' => array(
           'type' => 'select',
-          'label' => __('Column Width', 'pluginchief'),
-          'desc' => __('Choose column width', 'pluginchief'),
+          'label' => __('Column Width', 'mountaininja'),
+          'desc' => __('Choose column width', 'mountaininja'),
           'options' => array(
             '1' => '1 Column',
             '2' => '2 Column',
@@ -325,12 +325,12 @@ $pluginchief_shortcodes['columns'] = array(
       'content' => array(
           'std' => 'Column content',
           'type' => 'textarea',
-          'label' => __('Column Content', 'pluginchief'),
-          'desc' => __('Add the column content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Column Content', 'mountaininja'),
+          'desc' => __('Add the column content, you can also insert html tag.', 'mountaininja')
       )
     ),
-    'shortcode' => '[pluginchief_column column="{{column}}"] {{content}} [/pluginchief_column]',
-    'clone_button' => __('Add Column', 'pluginchief')
+    'shortcode' => '[mountaininja_column column="{{column}}"] {{content}} [/mountaininja_column]',
+    'clone_button' => __('Add Column', 'mountaininja')
   )
 );
 

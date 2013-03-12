@@ -1,22 +1,22 @@
 (function(){
 
   // Create Shortcodes plugin
-  tinymce.create("tinymce.plugins.pluginchiefShortcodes",{
+  tinymce.create("tinymce.plugins.mountaininjaShortcodes",{
     init: function ( ed, url ) {
-      ed.addCommand("pluginchiefPopup", function ( a, params){
+      ed.addCommand("mountaininjaPopup", function ( a, params){
         var popup = params.identifier;
 
         // load thickbox
-        tb_show("Insert Pluginchief Shortcode", pluginchief_helper.framework_url + "inc/popup.php?popup=" + popup + "&width=" + 800);
+        tb_show("Insert Mountaininja Shortcode", mountaininja_helper.framework_url + "inc/popup.php?popup=" + popup + "&width=" + 800);
       });
     },
     createControl: function ( btn, e ){
-      if( btn == "pluginchief_button" ) {
+      if( btn == "mountaininja_button" ) {
         var a   = this;
 
-        var btn = e.createSplitButton('pluginchief_button', {
-            title: "Insert Pluginchief Shortcode",
-            image: pluginchief_helper.framework_url + "/inc/img/icon.png",
+        var btn = e.createSplitButton('mountaininja_button', {
+            title: "Insert Mountaininja Shortcode",
+            image: mountaininja_helper.framework_url + "/inc/img/icon.png",
             icons: false
         });
 
@@ -43,7 +43,7 @@
       ed.add({
         title: title,
         onclick: function() {
-          tinyMCE.activeEditor.execCommand("pluginchiefPopup", false, {
+          tinyMCE.activeEditor.execCommand("mountaininjaPopup", false, {
             title: title,
             identifier: id
           })
@@ -60,7 +60,7 @@
     }
   });
 
-  // Add pluginchiefShortcodes plugin
-  tinymce.PluginManager.add("pluginchiefShortcodes", tinymce.plugins.pluginchiefShortcodes);
+  // Add mountaininjaShortcodes plugin
+  tinymce.PluginManager.add("mountaininjaShortcodes", tinymce.plugins.mountaininjaShortcodes);
 
 })();

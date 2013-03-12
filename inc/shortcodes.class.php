@@ -2,7 +2,7 @@
 // load wordpress
 require_once('get_wp.php');
 
-class pluginchief_shortcodes
+class mountaininja_shortcodes
 {
   var $conf;
   var $popup;
@@ -45,22 +45,22 @@ class pluginchief_shortcodes
     #get config file
     require_once( $this->conf );
 
-    if( isset( $pluginchief_shortcodes[$this->popup]['child_shortcode'] ) )
+    if( isset( $mountaininja_shortcodes[$this->popup]['child_shortcode'] ) )
       $this->has_child = true;
 
-    if( isset( $pluginchief_shortcodes ) && is_array( $pluginchief_shortcodes ) )
+    if( isset( $mountaininja_shortcodes ) && is_array( $mountaininja_shortcodes ) )
     {
       #get shortcode config stuff
-      $this->params 		 =& $pluginchief_shortcodes[$this->popup]['params'];
-      $this->shortcode   =& $pluginchief_shortcodes[$this->popup]['shortcode'];
-      $this->popup_title =& $pluginchief_shortcodes[$this->popup]['popup_title'];
-      $this->description =& $pluginchief_shortcodes[$this->popup]['description'];
+      $this->params 		 =& $mountaininja_shortcodes[$this->popup]['params'];
+      $this->shortcode   =& $mountaininja_shortcodes[$this->popup]['shortcode'];
+      $this->popup_title =& $mountaininja_shortcodes[$this->popup]['popup_title'];
+      $this->description =& $mountaininja_shortcodes[$this->popup]['description'];
 
       // adds stuff for js use
-      $this->append_output( "\n" . '<div id="_pluginchief_shortcode" class="hidden">' . $this->shortcode . '</div>' );
-      $this->append_output( "\n" . '<div id="_pluginchief_popup" class="hidden">' . $this->popup . '</div>' );
+      $this->append_output( "\n" . '<div id="_mountaininja_shortcode" class="hidden">' . $this->shortcode . '</div>' );
+      $this->append_output( "\n" . '<div id="_mountaininja_popup" class="hidden">' . $this->popup . '</div>' );
 
-      if( isset( $pluginchief_shortcodes[$this->popup]['no_preview'] ) && $pluginchief_shortcodes[$this->popup]['no_preview'] )
+      if( isset( $mountaininja_shortcodes[$this->popup]['no_preview'] ) && $mountaininja_shortcodes[$this->popup]['no_preview'] )
       {
         $this->no_preview = true;
       }
@@ -76,7 +76,7 @@ class pluginchief_shortcodes
 
         #If description have thumbnail
         if( $this->description['thumb'] ) {
-          $desc_output .= '<td><img src="' . PLUGINCHIEFTBSC_URL . 'js/shortcode/images/' . $this->description['thumb'] . '" alt="Description thumbnail"></td>' . "\n";
+          $desc_output .= '<td><img src="' . MOUNTAININJATBSC_URL . 'js/shortcode/images/' . $this->description['thumb'] . '" alt="Description thumbnail"></td>' . "\n";
         }
 
         $desc_output .= '</tr>' . "\n";
@@ -88,8 +88,8 @@ class pluginchief_shortcodes
       #filters and excutes params
       foreach( $this->params as $pkey => $param )
       {
-        #prefix the fields names and ids with pluginchief_
-        $pkey = 'pluginchief_' . $pkey;
+        #prefix the fields names and ids with mountaininja_
+        $pkey = 'mountaininja_' . $pkey;
 
         #popup form row start
         $param['collapsible'] =& $param['collapsible'];
@@ -99,13 +99,13 @@ class pluginchief_shortcodes
         $param['std']					=& $param['std'];
         $param['show_opt']		=& $param['show_opt'];
 
-        $row_start  = '<tbody class="'. ( $param['collapsible'] ? 'pluginchief-collapsible' : '' ) .'">' . "\n";
+        $row_start  = '<tbody class="'. ( $param['collapsible'] ? 'mountaininja-collapsible' : '' ) .'">' . "\n";
         $row_start .= '<tr class="form-row">' . "\n";
         $row_start .= '<td class="label">' . $param['label'] . '</td>' . "\n";
         $row_start .= '<td class="field">' . "\n";
 
         #popup form row end
-        $row_end    = '<span class="pluginchief-form-desc">' . $param['desc'] . '</span>' . "\n";
+        $row_end    = '<span class="mountaininja-form-desc">' . $param['desc'] . '</span>' . "\n";
         $row_end   .= '</td>' . "\n";
         $row_end   .= '</tr>' . "\n";
         $row_end   .= '</tbody>' . "\n";
@@ -116,7 +116,7 @@ class pluginchief_shortcodes
 
             #prepare
             $output  =& $row_start;
-            $output .= '<input type="text" class="pluginchief-form-text pluginchief-input" name="' . $pkey . '" id="' . $pkey . '" value="' . $param['std'] . '" />' . "\n";
+            $output .= '<input type="text" class="mountaininja-form-text mountaininja-input" name="' . $pkey . '" id="' . $pkey . '" value="' . $param['std'] . '" />' . "\n";
             $output .= $row_end;
 
             #append
@@ -128,7 +128,7 @@ class pluginchief_shortcodes
 
             #prepare
             $output  =& $row_start;
-            $output .= '<textarea rows="10" cols="30" name="' . $pkey . '" id="' . $pkey . '" class="pluginchief-form-textarea pluginchief-input">' . $param['std'] . '</textarea>' . "\n";
+            $output .= '<textarea rows="10" cols="30" name="' . $pkey . '" id="' . $pkey . '" class="mountaininja-form-textarea mountaininja-input">' . $param['std'] . '</textarea>' . "\n";
             $output .= $row_end;
 
             #append
@@ -140,7 +140,7 @@ class pluginchief_shortcodes
 
             #prepare
             $output  =& $row_start;
-            $output .= '<select name="' . $pkey . '" id="' . $pkey . '" class="pluginchief-form-select pluginchief-input">' . "\n";
+            $output .= '<select name="' . $pkey . '" id="' . $pkey . '" class="mountaininja-form-select mountaininja-input">' . "\n";
 
             foreach( $param['options'] as $value => $option )
             {
@@ -159,8 +159,8 @@ class pluginchief_shortcodes
 
             #prepare
             $output  =& $row_start;
-            $output .= '<label for="' . $pkey . '" class="pluginchief-form-checkbox '. ( $param['show_opt'] ? 'pluginchief-collapse-button' : '' ) .'">' . "\n";
-            $output .= '<input type="checkbox" class="pluginchief-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' rel="pluginchief_'.  $param['show_opt'] .'" />' . "\n";
+            $output .= '<label for="' . $pkey . '" class="mountaininja-form-checkbox '. ( $param['show_opt'] ? 'mountaininja-collapse-button' : '' ) .'">' . "\n";
+            $output .= '<input type="checkbox" class="mountaininja-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' rel="mountaininja_'.  $param['show_opt'] .'" />' . "\n";
             $output .= ' ' . $param['checkbox_text'] . '</label>' . "\n";
             $output .= $row_end;
 
@@ -178,7 +178,7 @@ class pluginchief_shortcodes
               $output .= '<li><span class="' . $icon . '"></span></li>';
             }
             $output .= '</ul>';
-            $output .= '<input type="hidden" class="pluginchief-input" id="'. $pkey .'" value="">';
+            $output .= '<input type="hidden" class="mountaininja-input" id="'. $pkey .'" value="">';
             $output .= $row_end;
 
             #append
@@ -189,20 +189,20 @@ class pluginchief_shortcodes
       }
 
       #checks if has a child shortcode
-      if( isset( $pluginchief_shortcodes[$this->popup]['child_shortcode'] ) )
+      if( isset( $mountaininja_shortcodes[$this->popup]['child_shortcode'] ) )
       {
         #set child shortcode
-        $this->cparams = $pluginchief_shortcodes[$this->popup]['child_shortcode']['params'];
-        $this->cshortcode = $pluginchief_shortcodes[$this->popup]['child_shortcode']['shortcode'];
+        $this->cparams = $mountaininja_shortcodes[$this->popup]['child_shortcode']['params'];
+        $this->cshortcode = $mountaininja_shortcodes[$this->popup]['child_shortcode']['shortcode'];
 
         #popup parent form row start
         $prow_start  = '<tbody>' . "\n";
         $prow_start .= '<tr class="form-row has-child">' . "\n";
-        $prow_start .= '<td><a href="#" id="form-child-add" class="button-secondary">' . $pluginchief_shortcodes[$this->popup]['child_shortcode']['clone_button'] . '</a>' . "\n";
+        $prow_start .= '<td><a href="#" id="form-child-add" class="button-secondary">' . $mountaininja_shortcodes[$this->popup]['child_shortcode']['clone_button'] . '</a>' . "\n";
         $prow_start .= '<div class="child-clone-rows">' . "\n";
 
         // for js use
-        $prow_start .= '<div id="_pluginchief_cshortcode" class="hidden">' . $this->cshortcode . '</div>' . "\n";
+        $prow_start .= '<div id="_mountaininja_cshortcode" class="hidden">' . $this->cshortcode . '</div>' . "\n";
 
         // start the default row
         $prow_start .= '<div class="child-clone-row">' . "\n";
@@ -217,13 +217,13 @@ class pluginchief_shortcodes
         foreach( $this->cparams as $cpkey => $cparam )
         {
 
-          #prefix the fields names and ids with pluginchief_
-          $cpkey = 'pluginchief_' . $cpkey;
+          #prefix the fields names and ids with mountaininja_
+          $cpkey = 'mountaininja_' . $cpkey;
           $cparam['collapsible'] =& $cparam['collapsible'];
           $cparam['label']			 =& $cparam['label'];
           $cparam['desc']				 =& $cparam['desc'];
           #popup form row start
-          $crow_start  = '<li class="child-clone-row-form-row '. ( $cparam['collapsible'] ? 'pluginchief-collapsible' : '' ) .'">' . "\n";
+          $crow_start  = '<li class="child-clone-row-form-row '. ( $cparam['collapsible'] ? 'mountaininja-collapsible' : '' ) .'">' . "\n";
           $crow_start .= '<div class="child-clone-row-label">' . "\n";
           $crow_start .= '<label>' . $cparam['label'] . '</label>' . "\n";
           $crow_start .= '</div>' . "\n";
@@ -240,7 +240,7 @@ class pluginchief_shortcodes
 
               #prepare
               $coutput  =& $crow_start;
-              $coutput .= '<input type="text" class="pluginchief-form-text pluginchief-cinput" name="' . $cpkey . '" id="' . $cpkey . '" value="' . $cparam['std'] . '" />' . "\n";
+              $coutput .= '<input type="text" class="mountaininja-form-text mountaininja-cinput" name="' . $cpkey . '" id="' . $cpkey . '" value="' . $cparam['std'] . '" />' . "\n";
               $coutput .= $crow_end;
 
               #append
@@ -252,7 +252,7 @@ class pluginchief_shortcodes
 
               #prepare
               $coutput  = $crow_start;
-              $coutput .= '<textarea rows="10" cols="30" name="' . $cpkey . '" id="' . $cpkey . '" class="pluginchief-form-textarea pluginchief-cinput">' . $cparam['std'] . '</textarea>' . "\n";
+              $coutput .= '<textarea rows="10" cols="30" name="' . $cpkey . '" id="' . $cpkey . '" class="mountaininja-form-textarea mountaininja-cinput">' . $cparam['std'] . '</textarea>' . "\n";
               $coutput .= $crow_end;
 
               #append
@@ -264,7 +264,7 @@ class pluginchief_shortcodes
 
               #prepare
               $coutput  =& $crow_start;
-              $coutput .= '<select name="' . $cpkey . '" id="' . $cpkey . '" class="pluginchief-form-select pluginchief-cinput">' . "\n";
+              $coutput .= '<select name="' . $cpkey . '" id="' . $cpkey . '" class="mountaininja-form-select mountaininja-cinput">' . "\n";
 
               foreach( $cparam['options'] as $value => $option )
               {
@@ -287,8 +287,8 @@ class pluginchief_shortcodes
               $cparam['std']					 =& $cparam['std'];
               $cparam['checkbox_text'] =& $cparam['checkbox_text'];
 
-              $coutput .= '<label for="' . $cpkey . '" class="pluginchief-form-checkbox '. ( $cparam['show_opt'] ? 'pluginchief-collapse-button' : '' ) .'">' . "\n";
-              $coutput .= '<input type="checkbox" class="pluginchief-cinput" name="' . $cpkey . '" id="' . $cpkey . '" ' . ( $cparam['std'] ? 'checked' : '' ) . ' rel="pluginchief_'.  $cparam['show_opt'] .'" />' . "\n";
+              $coutput .= '<label for="' . $cpkey . '" class="mountaininja-form-checkbox '. ( $cparam['show_opt'] ? 'mountaininja-collapse-button' : '' ) .'">' . "\n";
+              $coutput .= '<input type="checkbox" class="mountaininja-cinput" name="' . $cpkey . '" id="' . $cpkey . '" ' . ( $cparam['std'] ? 'checked' : '' ) . ' rel="mountaininja_'.  $cparam['show_opt'] .'" />' . "\n";
               $coutput .= ' ' . $cparam['checkbox_text'] . '</label>' . "\n";
               $coutput .= $crow_end;
 
@@ -306,7 +306,7 @@ class pluginchief_shortcodes
                 $coutput .= '<li><span class="' . $icon . '"></span></li>';
               }
               $coutput .= '</ul>';
-              $coutput .= '<input type="hidden" class="pluginchief-cinput" id="'. $cpkey .'" value="">';
+              $coutput .= '<input type="hidden" class="mountaininja-cinput" id="'. $cpkey .'" value="">';
               $coutput .= $crow_end;
 
               #append
