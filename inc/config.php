@@ -3,13 +3,13 @@
 /*-----------------------------------------------------------------------------------*/
 /*  Alert Config
 /*-----------------------------------------------------------------------------------*/
-$pluginchief_shortcodes['alert'] = array(
+$pluginninja_shortcodes['alert'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Alert Style', 'pluginchief'),
-      'desc' => __('Select the alert\'s type, ie the alert colour', 'pluginchief'),
+      'label' => __('Alert Style', 'pluginninja'),
+      'desc' => __('Select the alert\'s type, ie the alert colour', 'pluginninja'),
       'options' => array(
         'warning' => 'Warning',
         'error' => 'Error',
@@ -19,29 +19,29 @@ $pluginchief_shortcodes['alert'] = array(
     ),
     'dismiss' => array(
       'type' => 'checkbox',
-      'label' => __('Dismissable', 'pluginchief'),
-      'checkbox_text' => __('Is the allert dismissable? Visitor can close the alert', 'pluginchief')
+      'label' => __('Dismissable', 'pluginninja'),
+      'checkbox_text' => __('Is the allert dismissable? Visitor can close the alert', 'pluginninja')
     ),
     'content' => array(
       'std' => 'Alert text',
       'type' => 'textarea',
-      'label' => __('Alert Text', 'pluginchief'),
-      'desc' => __('Add the alert\'s text.  You can also insert html tag here.', 'pluginchief'),
+      'label' => __('Alert Text', 'pluginninja'),
+      'desc' => __('Add the alert\'s text.  You can also insert html tag here.', 'pluginninja'),
     )
 
   ),
-  'shortcode' => '[pluginchief_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/pluginchief_alert]',
-  'popup_title' => __('Insert Alert Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_alert style="{{style}}" dismiss="{{dismiss}}" ] {{content}} [/pluginninja_alert]',
+  'popup_title' => __('Insert Alert Shortcode', 'pluginninja')
 );
 /*-----------------------------------------------------------------------------------*/
 /*  Well
 /*-----------------------------------------------------------------------------------*/
-$pluginchief_shortcodes['well'] = array(
+$pluginninja_shortcodes['well'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Well style', 'pluginchief'),
+      'label' => __('Well style', 'pluginninja'),
       'desc' => __('Select well\'s style, ie the label\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -52,31 +52,31 @@ $pluginchief_shortcodes['well'] = array(
     'content' => array(
       'std' => 'Well Text',
       'type' => 'textarea',
-      'label' => __('Well\'s Text', 'pluginchief'),
-      'desc' => __('Add the well\'s text', 'pluginchief')
+      'label' => __('Well\'s Text', 'pluginninja'),
+      'desc' => __('Add the well\'s text', 'pluginninja')
     )
   ),
-  'shortcode' => '[pluginchief_well style="{{style}}"] {{content}} [/pluginchief_well]',
-  'popup_title' => __('Insert Well Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_well style="{{style}}"] {{content}} [/pluginninja_well]',
+  'popup_title' => __('Insert Well Shortcode', 'pluginninja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Button Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['button'] = array(
+$pluginninja_shortcodes['button'] = array(
   'no_preview' => true,
   'params' => array(
     'url' => array(
       'std' => '',
       'type' => 'text',
-      'label' => __('Button URL', 'pluginchief'),
-      'desc' => __('Add the button\'s url eg http://example.com', 'pluginchief')
+      'label' => __('Button URL', 'pluginninja'),
+      'desc' => __('Add the button\'s url eg http://example.com', 'pluginninja')
     ),
     'style' => array(
       'type' => 'select',
-      'label' => __('Button Style', 'pluginchief'),
-      'desc' => __('Select the button\'s style, ie the button\'s colour', 'pluginchief'),
+      'label' => __('Button Style', 'pluginninja'),
+      'desc' => __('Select the button\'s style, ie the button\'s colour', 'pluginninja'),
       'options' => array(
         'default' => 'Default button',
         'primary' => 'Primary button',
@@ -89,8 +89,8 @@ $pluginchief_shortcodes['button'] = array(
     ),
     'size' => array(
       'type' => 'select',
-      'label' => __('Button Size', 'pluginchief'),
-      'desc' => __('Select the button\'s size', 'pluginchief'),
+      'label' => __('Button Size', 'pluginninja'),
+      'desc' => __('Select the button\'s size', 'pluginninja'),
       'options' => array(
         'default' => 'Default',
         'mini' => 'Mini',
@@ -101,8 +101,8 @@ $pluginchief_shortcodes['button'] = array(
     ),
     'target' => array(
       'type' => 'select',
-      'label' => __('Button Target', 'pluginchief'),
-      'desc' => __('_self = open in same window. _blank = open in new window', 'pluginchief'),
+      'label' => __('Button Target', 'pluginninja'),
+      'desc' => __('_self = open in same window. _blank = open in new window', 'pluginninja'),
       'options' => array(
         '_self' => '_self',
         '_blank' => '_blank'
@@ -111,35 +111,35 @@ $pluginchief_shortcodes['button'] = array(
     'content' => array(
       'std' => 'Button Text',
       'type' => 'text',
-      'label' => __('Button\'s Text', 'pluginchief'),
-      'desc' => __('Add the button\'s text', 'pluginchief'),
+      'label' => __('Button\'s Text', 'pluginninja'),
+      'desc' => __('Add the button\'s text', 'pluginninja'),
     ),
     'enable_icon' => array(
       'type' => 'checkbox',
-      'label' => __('Button\'s Icon', 'pluginchief'),
-      'checkbox_text' => __('Enable icon for button?', 'pluginchief'),
+      'label' => __('Button\'s Icon', 'pluginninja'),
+      'checkbox_text' => __('Enable icon for button?', 'pluginninja'),
       'show_opt' => 'icon'
     ),
     'icon' => array(
       'type' => 'icon',
       'collapsible' => true,
-      'label' => __('Choose Icon', 'pluginchief')
+      'label' => __('Choose Icon', 'pluginninja')
     )
   ),
-  'shortcode' => '[pluginchief_button url="{{url}}" style="{{style}}" size="{{size}}" target="{{target}}" icon="{{icon}}"] {{content}} [/pluginchief_button]',
-  'popup_title' => __('Insert Button Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_button url="{{url}}" style="{{style}}" size="{{size}}" target="{{target}}" icon="{{icon}}"] {{content}} [/pluginninja_button]',
+  'popup_title' => __('Insert Button Shortcode', 'pluginninja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Inline Label Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['label'] = array(
+$pluginninja_shortcodes['label'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Label style', 'pluginchief'),
+      'label' => __('Label style', 'pluginninja'),
       'desc' => __('Select label\'s style, ie the label\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -152,24 +152,24 @@ $pluginchief_shortcodes['label'] = array(
     'content' => array(
       'std' => 'Label Text',
       'type' => 'text',
-      'label' => __('Label\'s Text', 'pluginchief'),
-      'desc' => __('Add the label\'s text', 'pluginchief')
+      'label' => __('Label\'s Text', 'pluginninja'),
+      'desc' => __('Add the label\'s text', 'pluginninja')
     )
   ),
-  'shortcode' => '[pluginchief_label style="{{style}}"] {{content}} [/pluginchief_label]',
-  'popup_title' => __('Insert Inline Label Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_label style="{{style}}"] {{content}} [/pluginninja_label]',
+  'popup_title' => __('Insert Inline Label Shortcode', 'pluginninja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Badges Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['badge'] = array(
+$pluginninja_shortcodes['badge'] = array(
   'no_preview' => true,
   'params' => array(
     'style' => array(
       'type' => 'select',
-      'label' => __('Badge style', 'pluginchief'),
+      'label' => __('Badge style', 'pluginninja'),
       'desc' => __('Select badge\'s style, ie the badge\'s colour.'),
       'options' => array(
         'default' => 'Default',
@@ -182,41 +182,41 @@ $pluginchief_shortcodes['badge'] = array(
     'content' => array(
       'std' => 'Badge Text',
       'type' => 'text',
-      'label' => __('Badge\'s Text', 'pluginchief'),
-      'desc' => __('Add the badge\'s text', 'pluginchief')
+      'label' => __('Badge\'s Text', 'pluginninja'),
+      'desc' => __('Add the badge\'s text', 'pluginninja')
     )
   ),
-  'shortcode' => '[pluginchief_badge style="{{style}}"] {{content}} [/pluginchief_badge]',
-  'popup_title' => __('Insert Badge Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_badge style="{{style}}"] {{content}} [/pluginninja_badge]',
+  'popup_title' => __('Insert Badge Shortcode', 'pluginninja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Tabs Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['tabs'] = array(
+$pluginninja_shortcodes['tabs'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_tabs] {{child_shortcode}} [/pluginchief_tabs]',
-  'popup_title' => __('Insert Tab Shortcode', 'pluginchief'),
+  'shortcode' => '[pluginninja_tabs] {{child_shortcode}} [/pluginninja_tabs]',
+  'popup_title' => __('Insert Tab Shortcode', 'pluginninja'),
 
   'child_shortcode' => array(
     'params' => array(
       'title' => array(
           'std' => 'Title',
           'type' => 'text',
-          'label' => __('Tab Title', 'pluginchief'),
-          'desc' => __('Title of the tab', 'pluginchief')
+          'label' => __('Tab Title', 'pluginninja'),
+          'desc' => __('Title of the tab', 'pluginninja')
       ),
       'content' => array(
           'std' => 'Tab content',
           'type' => 'textarea',
-          'label' => __('Tab Content', 'pluginchief'),
-          'desc' => __('Add the tabs content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Tab Content', 'pluginninja'),
+          'desc' => __('Add the tabs content, you can also insert html tag.', 'pluginninja')
       )
     ),
-    'shortcode' => '[pluginchief_tab title="{{title}}"] {{content}} [/pluginchief_tab]',
-    'clone_button' => __('Add Tab', 'pluginchief')
+    'shortcode' => '[pluginninja_tab title="{{title}}"] {{content}} [/pluginninja_tab]',
+    'clone_button' => __('Add Tab', 'pluginninja')
   )
 );
 
@@ -224,53 +224,53 @@ $pluginchief_shortcodes['tabs'] = array(
 /*  Toggle Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['toggle'] = array(
+$pluginninja_shortcodes['toggle'] = array(
   'no_preview' => true,
   'params' => array(
     'title' => array(
       'std' => 'Toggle Title',
       'type' => 'text',
-      'label' => __('Toggle\'s Title', 'pluginchief'),
-      'desc' => __('Add the toggle\'s title', 'pluginchief')
+      'label' => __('Toggle\'s Title', 'pluginninja'),
+      'desc' => __('Add the toggle\'s title', 'pluginninja')
     ),
     'content' => array(
       'std' => 'Toggle content',
       'type' => 'textarea',
-      'label' => __('Toggle\'s Content', 'pluginchief'),
-      'desc' => __('Add the toggle\'s content', 'pluginchief')
+      'label' => __('Toggle\'s Content', 'pluginninja'),
+      'desc' => __('Add the toggle\'s content', 'pluginninja')
     )
   ),
-  'shortcode' => '[pluginchief_toggle title="{{title}}"] {{content}} [/pluginchief_toggle]',
-  'popup_title' => __('Insert Toggle Shortcode', 'pluginchief')
+  'shortcode' => '[pluginninja_toggle title="{{title}}"] {{content}} [/pluginninja_toggle]',
+  'popup_title' => __('Insert Toggle Shortcode', 'pluginninja')
 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Accordion Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['accordion'] = array(
+$pluginninja_shortcodes['accordion'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_accordions] {{child_shortcode}} [/pluginchief_accordions]',
-  'popup_title' => __('Insert Accordion Shortcode', 'pluginchief'),
+  'shortcode' => '[pluginninja_accordions] {{child_shortcode}} [/pluginninja_accordions]',
+  'popup_title' => __('Insert Accordion Shortcode', 'pluginninja'),
 
   'child_shortcode' => array(
     'params' => array(
       'title' => array(
           'std' => 'Title',
           'type' => 'text',
-          'label' => __('Accordion Title', 'pluginchief'),
-          'desc' => __('Title of the accordion', 'pluginchief')
+          'label' => __('Accordion Title', 'pluginninja'),
+          'desc' => __('Title of the accordion', 'pluginninja')
       ),
       'content' => array(
           'std' => 'Accordion content',
           'type' => 'textarea',
-          'label' => __('Accordion Content', 'pluginchief'),
-          'desc' => __('Add the accordion content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Accordion Content', 'pluginninja'),
+          'desc' => __('Add the accordion content, you can also insert html tag.', 'pluginninja')
       )
     ),
-    'shortcode' => '[pluginchief_accordion title="{{title}}"] {{content}} [/pluginchief_accordion]',
-    'clone_button' => __('Add Accordion', 'pluginchief')
+    'shortcode' => '[pluginninja_accordion title="{{title}}"] {{content}} [/pluginninja_accordion]',
+    'clone_button' => __('Add Accordion', 'pluginninja')
   )
 );
 
@@ -278,16 +278,16 @@ $pluginchief_shortcodes['accordion'] = array(
 /*  Buttons Group Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['buttons_group'] = array(
+$pluginninja_shortcodes['buttons_group'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_buttons_group] {{child_shortcode}} [/pluginchief_buttons_group]',
-  'popup_title' => __('Insert Buttons Group Shortcode', 'pluginchief'),
+  'shortcode' => '[pluginninja_buttons_group] {{child_shortcode}} [/pluginninja_buttons_group]',
+  'popup_title' => __('Insert Buttons Group Shortcode', 'pluginninja'),
 
   'child_shortcode' => array(
-    'params' => $pluginchief_shortcodes['button']['params'],
-    'shortcode' => $pluginchief_shortcodes['button']['shortcode'],
-    'clone_button' => __('Add Button', 'pluginchief')
+    'params' => $pluginninja_shortcodes['button']['params'],
+    'shortcode' => $pluginninja_shortcodes['button']['shortcode'],
+    'clone_button' => __('Add Button', 'pluginninja')
   )
 );
 
@@ -295,18 +295,18 @@ $pluginchief_shortcodes['buttons_group'] = array(
 /*  Columns Config
 /*-----------------------------------------------------------------------------------*/
 
-$pluginchief_shortcodes['columns'] = array(
+$pluginninja_shortcodes['columns'] = array(
   'params' => array(),
   'no_preview' => true,
-  'shortcode' => '[pluginchief_rows] {{child_shortcode}} [/pluginchief_rows]',
-  'popup_title' => __('Insert Columns Shortcode', 'pluginchief'),
+  'shortcode' => '[pluginninja_rows] {{child_shortcode}} [/pluginninja_rows]',
+  'popup_title' => __('Insert Columns Shortcode', 'pluginninja'),
 
   'child_shortcode' => array(
     'params' => array(
       'column' => array(
           'type' => 'select',
-          'label' => __('Column Width', 'pluginchief'),
-          'desc' => __('Choose column width', 'pluginchief'),
+          'label' => __('Column Width', 'pluginninja'),
+          'desc' => __('Choose column width', 'pluginninja'),
           'options' => array(
             '1' => '1 Column',
             '2' => '2 Column',
@@ -325,12 +325,12 @@ $pluginchief_shortcodes['columns'] = array(
       'content' => array(
           'std' => 'Column content',
           'type' => 'textarea',
-          'label' => __('Column Content', 'pluginchief'),
-          'desc' => __('Add the column content, you can also insert html tag.', 'pluginchief')
+          'label' => __('Column Content', 'pluginninja'),
+          'desc' => __('Add the column content, you can also insert html tag.', 'pluginninja')
       )
     ),
-    'shortcode' => '[pluginchief_column column="{{column}}"] {{content}} [/pluginchief_column]',
-    'clone_button' => __('Add Column', 'pluginchief')
+    'shortcode' => '[pluginninja_column column="{{column}}"] {{content}} [/pluginninja_column]',
+    'clone_button' => __('Add Column', 'pluginninja')
   )
 );
 

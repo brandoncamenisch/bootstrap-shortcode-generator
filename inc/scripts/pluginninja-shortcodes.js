@@ -1,22 +1,22 @@
 (function(){
 
   // Create Shortcodes plugin
-  tinymce.create("tinymce.plugins.pluginchiefShortcodes",{
+  tinymce.create("tinymce.plugins.pluginninjaShortcodes",{
     init: function ( ed, url ) {
-      ed.addCommand("pluginchiefPopup", function ( a, params){
+      ed.addCommand("pluginninjaPopup", function ( a, params){
         var popup = params.identifier;
 
         // load thickbox
-        tb_show("Insert Pluginchief Shortcode", pluginchief_helper.framework_url + "inc/popup.php?popup=" + popup + "&width=" + 800);
+        tb_show("Insert Pluginninja Shortcode", pluginninja_helper.framework_url + "inc/popup.php?popup=" + popup + "&width=" + 800);
       });
     },
     createControl: function ( btn, e ){
-      if( btn == "pluginchief_button" ) {
+      if( btn == "pluginninja_button" ) {
         var a   = this;
 
-        var btn = e.createSplitButton('pluginchief_button', {
-            title: "Insert Pluginchief Shortcode",
-            image: pluginchief_helper.framework_url + "/inc/img/icon.png",
+        var btn = e.createSplitButton('pluginninja_button', {
+            title: "Insert Pluginninja Shortcode",
+            image: pluginninja_helper.framework_url + "/inc/img/icon.png",
             icons: false
         });
 
@@ -43,7 +43,7 @@
       ed.add({
         title: title,
         onclick: function() {
-          tinyMCE.activeEditor.execCommand("pluginchiefPopup", false, {
+          tinyMCE.activeEditor.execCommand("pluginninjaPopup", false, {
             title: title,
             identifier: id
           })
@@ -60,7 +60,7 @@
     }
   });
 
-  // Add pluginchiefShortcodes plugin
-  tinymce.PluginManager.add("pluginchiefShortcodes", tinymce.plugins.pluginchiefShortcodes);
+  // Add pluginninjaShortcodes plugin
+  tinymce.PluginManager.add("pluginninjaShortcodes", tinymce.plugins.pluginninjaShortcodes);
 
 })();

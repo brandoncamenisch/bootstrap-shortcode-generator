@@ -2,21 +2,21 @@
 // start the popup specefic scripts
 jQuery(document).ready(function($){
 
-  var pluginchief_popup = {
+  var pluginninja_popup = {
 
     /* 
     * Function for when shortcode options change 
     * 
     */
     loadVals: function() {
-      var shortcode   = $('#_pluginchief_shortcode').text(),
+      var shortcode   = $('#_pluginninja_shortcode').text(),
           uShortcode  = shortcode;
 
       // fill in the gaps eg {{param}}
-      $('.pluginchief-input').each(function() {
+      $('.pluginninja-input').each(function() {
         var input = $(this),
             id    = input.attr('id'),
-            id    = id.replace('pluginchief_', ''),    // gets rid of the pluginchief_ prefix
+            id    = id.replace('pluginninja_', ''),    // gets rid of the pluginninja_ prefix
             re    = new RegExp("{{"+id+"}}","g"),
             val   = input.val();
         
@@ -28,8 +28,8 @@ jQuery(document).ready(function($){
         uShortcode = uShortcode.replace(re, val);
 
         // adds the filled-in shortcode as hidden input
-        $('#_pluginchief_ushortcode').remove();
-        $('#pluginchief-sc-form-table').prepend('<div id="_pluginchief_ushortcode" class="hidden">' + uShortcode + '</div>');
+        $('#_pluginninja_ushortcode').remove();
+        $('#pluginninja-sc-form-table').prepend('<div id="_pluginninja_ushortcode" class="hidden">' + uShortcode + '</div>');
       });
     },
 
@@ -39,7 +39,7 @@ jQuery(document).ready(function($){
      * 
      */
     cLoadVals: function() {
-      var shortcode = $('#_pluginchief_cshortcode').text(),
+      var shortcode = $('#_pluginninja_cshortcode').text(),
           pShortcode = '';
           shortcodes = '';
 
@@ -48,10 +48,10 @@ jQuery(document).ready(function($){
         var row = $(this),
             rShortcode = shortcode;
 
-        $('.pluginchief-cinput', this).each(function() {
+        $('.pluginninja-cinput', this).each(function() {
           var input = $(this),
             id = input.attr('id'),
-            id = id.replace('pluginchief_', '')   // gets rid of the pluginchief_ prefix
+            id = id.replace('pluginninja_', '')   // gets rid of the pluginninja_ prefix
             re = new RegExp("{{"+id+"}}","g");
             
           rShortcode = rShortcode.replace(re, input.val());
@@ -61,16 +61,16 @@ jQuery(document).ready(function($){
       });
 
       // adds the filled-in shortcode as hidden input
-      $('#_pluginchief_cshortcodes').remove();
-      $('.child-clone-rows').prepend('<div id="_pluginchief_cshortcodes" class="hidden">' + shortcodes + '</div>');
+      $('#_pluginninja_cshortcodes').remove();
+      $('.child-clone-rows').prepend('<div id="_pluginninja_cshortcodes" class="hidden">' + shortcodes + '</div>');
 
       // add to parent shortcode
       this.loadVals();
-      pShortcode = $('#_pluginchief_shortcode').text().replace('{{child_shortcode}}', shortcodes);
+      pShortcode = $('#_pluginninja_shortcode').text().replace('{{child_shortcode}}', shortcodes);
 
       // add updated parent shortcode
-      $('#_pluginchief_ushortcode').remove();
-      $('#pluginchief-sc-form-table').prepend('<div id="_pluginchief_ushortcode" class="hidden">' + pShortcode + '</div>');
+      $('#_pluginninja_ushortcode').remove();
+      $('#pluginninja-sc-form-table').prepend('<div id="_pluginninja_ushortcode" class="hidden">' + pShortcode + '</div>');
     },
 
 
@@ -115,9 +115,9 @@ jQuery(document).ready(function($){
     resizeTB: function() {
       var ajaxCont = $('#TB_ajaxContent'),
           tbWindow = $('#TB_window'),
-          pluginchiefPopup = $('#pluginchief-popup'),
+          pluginninjaPopup = $('#pluginninja-popup'),
           windowHeight = $(window).height(),
-          tbWindowHeight = pluginchiefPopup.outerHeight() + 50;
+          tbWindowHeight = pluginninjaPopup.outerHeight() + 50;
 
       // Check if popup height greater than window height
       if( tbWindowHeight > (windowHeight - 48*2 ) ) {
@@ -126,8 +126,8 @@ jQuery(document).ready(function($){
 
       tbWindow.css({
         height: tbWindowHeight,
-        width: pluginchiefPopup.outerWidth(),
-        marginLeft: -(pluginchiefPopup.outerWidth()/2)
+        width: pluginninjaPopup.outerWidth(),
+        marginLeft: -(pluginninjaPopup.outerWidth()/2)
       });
 
       ajaxCont.css({
@@ -137,10 +137,10 @@ jQuery(document).ready(function($){
         height: (tbWindow.outerHeight()-47),
         overflowX: 'hidden',
         overflowY: 'auto', // IMPORTANT
-        width: pluginchiefPopup.outerWidth()
+        width: pluginninjaPopup.outerWidth()
       });
 
-      $('#pluginchief-popup').addClass('no_preview');
+      $('#pluginninja-popup').addClass('no_preview');
     },
 
 
@@ -149,43 +149,43 @@ jQuery(document).ready(function($){
      * 
      */
     load: function() {
-      var pluginchief = this,
-          popup = $('#pluginchief-popup'),
-          form = $('#pluginchief-sc-form', popup),
-          shortcode = $('#_pluginchief_shortcode', form).text(),
-          popupType = $('#_pluginchief_popup', form).text(),
+      var pluginninja = this,
+          popup = $('#pluginninja-popup'),
+          form = $('#pluginninja-sc-form', popup),
+          shortcode = $('#_pluginninja_shortcode', form).text(),
+          popupType = $('#_pluginninja_popup', form).text(),
           uShortcode = '';
 
       // resize TB
-      pluginchief.resizeTB();
-      $(window).resize(function() { pluginchief.resizeTB() });
+      pluginninja.resizeTB();
+      $(window).resize(function() { pluginninja.resizeTB() });
 
       // initialise
-      pluginchief.loadVals();
-      pluginchief.children();
-      pluginchief.cLoadVals();
+      pluginninja.loadVals();
+      pluginninja.children();
+      pluginninja.cLoadVals();
 
       // update on children value change
-      $('.pluginchief-cinput', form).live('change', function() {
-        pluginchief.cLoadVals();
+      $('.pluginninja-cinput', form).live('change', function() {
+        pluginninja.cLoadVals();
       });
 
       // update on value change
-      $('.pluginchief-input', form).change(function() {
-        pluginchief.loadVals();
+      $('.pluginninja-input', form).change(function() {
+        pluginninja.loadVals();
       });
 
       // Collapsible children shortcode options
       $('.child-clone-row .handle, .child-clone-row .handlediv').live('click', function(){
         $(this).parent().toggleClass('closed');
-        pluginchief.resizeTB()
+        pluginninja.resizeTB()
       });
 
       // Collapsible block 
-      $('.pluginchief-collapse-button', form).children().change(function(){
+      $('.pluginninja-collapse-button', form).children().change(function(){
         var target = $(this).attr('rel');
         console.log( $(this).attr('rel') );
-        $('[class*="'+ target +'"]', form).parents('.pluginchief-collapsible').toggle();
+        $('[class*="'+ target +'"]', form).parents('.pluginninja-collapsible').toggle();
       });
 
       // Icon selector
@@ -197,26 +197,26 @@ jQuery(document).ready(function($){
 
         $el.parents('.the-icons').next().val( icon_name );
 
-        if( $el.parents('.the-icons').next().hasClass('pluginchief-input') ) {
-          pluginchief.loadVals();
+        if( $el.parents('.the-icons').next().hasClass('pluginninja-input') ) {
+          pluginninja.loadVals();
         } else {
-          pluginchief.cLoadVals();
+          pluginninja.cLoadVals();
         }
 
       });
 
       // when insert is clicked
-      $('.pluginchief-insert', form).click(function() {             
+      $('.pluginninja-insert', form).click(function() {             
         if(window.tinyMCE) {
-          window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, $('#_pluginchief_ushortcode', form).html());
+          window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, $('#_pluginninja_ushortcode', form).html());
           tb_remove();
         }
       });
     }
 
-  } // End pluginchief_popup object
+  } // End pluginninja_popup object
 
   // run
-  $('#pluginchief-popup').livequery( function() { pluginchief_popup.load(); } );
+  $('#pluginninja-popup').livequery( function() { pluginninja_popup.load(); } );
 
 });
