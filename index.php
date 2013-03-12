@@ -1,17 +1,12 @@
 <?php
 /*
-Plugin Name: PluginChief Twitter Bootstrap Shortcode Generator
-Plugin URI: http://pluginchief.com
+Plugin Name:  Twitter Bootstrap Shortcode Generator
+Plugin URI: http://brandoncamenisch.com
 Description: Implement Twitter Bootstrap into your website with our shortcode generator
 Version: 1.0
-Author: PluginChief, Jason Bahl, Brandon Camenisch
-Author URI: http://pluginchief.com/
-
- ___ _           _      ___ _    _      __
-| _ \ |_  _ __ _(_)_ _ / __| |_ (_)___ / _|
-|  _/ | || / _` | | ' \ (__| ' \| / -_)  _|
-|_| |_|\_,_\__, |_|_||_\___|_||_|_\___|_|
-           |___/*/
+Author: Brandon Camenisch
+Author URI: http://brandoncamenisch.com/
+*/
 
 // -------------------------------------------------------------------- //
 //	Set Up Plugin Constants
