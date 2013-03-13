@@ -1,56 +1,48 @@
 <?php
 /*
-Plugin Name: MountaiNinja Twitter Bootstrap Shortcode Generator
-Plugin URI: http://mountaininja.com
+Plugin Name:  Twitter Bootstrap Shortcode Generator
+Plugin URI: http://brandoncamenisch.com
 Description: Implement Twitter Bootstrap into your website with our shortcode generator
 Version: 1.0
-Author: MountaiNinja, Brandon Camenisch
+Author: Brandon Camenisch
 Author URI: http://brandoncamenisch.com/
-
- ___ _           _      ___ _    _      __
-| _ \ |_  _ __ _(_)_ _ / __| |_ (_)___ / _|
-|  _/ | || / _` | | ' \ (__| ' \| / -_)  _|
-|_| |_|\_,_\__, |_|_||_\___|_||_|_\___|_|
-           |___/*/
+*/
 
 // -------------------------------------------------------------------- //
 //	Set Up Plugin Constants
 // -------------------------------------------------------------------- //
 
-	// NOTE: MOUNTAININJATBSC = MountaiNinja Twitter Bootstrap Shortcodes
-	define('MOUNTAININJATBSC_URL', plugin_dir_url(__FILE__));
-	define('MOUNTAININJATBSC_PATH', plugin_dir_path(__FILE__));
+	// NOTE: PLUGINNINJATBSC = PluginNinja Twitter Bootstrap Shortcodes
+	define('PLUGINNINJATBSC_URL', plugin_dir_url(__FILE__));
+	define('PLUGINNINJATBSC_PATH', plugin_dir_path(__FILE__));
 
 // -------------------------------------------------------------------- //
 //	Includes
 // -------------------------------------------------------------------- //
 	if (is_admin()) {
-
-		#updater
-		require_once MOUNTAININJATBSC_PATH . 'inc/mountaininja-shortcode-generator.php';
-
+		require_once PLUGINNINJATBSC_PATH . 'inc/pluginninja-shortcode-generator.php';
 	}
 	#require on front-end
-	require_once MOUNTAININJATBSC_PATH . 'inc/mountaininja-shortcodes.php';
+	require_once PLUGINNINJATBSC_PATH . 'inc/pluginninja-shortcodes.php';
 
 // -------------------------------------------------------------------- //
 //	Init the updater
 // -------------------------------------------------------------------- //
-	function mountaininjatbsc_plugin_updater() {
+	function pluginninjatbsc_plugin_updater() {
 		if (class_exists('PluginUpdateChecker')) {
 
-			$MountaiNinjatwitterbootstrap = new PluginUpdateChecker( 'https://mountaininja.com/wp-content/plugins/mountaininja-updatechief/json/mountaininja-twitter-bootstrap-shortcodes.json', __FILE__,'mountaininja-twitter-bootstrap-shortcodes');
+			$PluginNinjatwitterbootstrap = new PluginUpdateChecker( 'https://pluginninja.com/wp-content/plugins/pluginninja-updatechief/json/pluginninja-twitter-bootstrap-shortcodes.json', __FILE__,'pluginninja-twitter-bootstrap-shortcodes');
 		}
 	}
-	add_action('plugins_loaded','mountaininjatbsc_plugin_updater');
+	add_action('plugins_loaded','pluginninjatbsc_plugin_updater');
 
 // -------------------------------------------------------------------- //
 //	Register | Enqueue : Styles | Scripts DEVELOPMENT ONLY!!!
 // -------------------------------------------------------------------- //
-	function mountaininjatbsc_scripts_styles() {
+	function pluginninjatbsc_scripts_styles() {
 		if ( 1 < 2 ){
-			wp_register_style('bootstrap_css', MOUNTAININJATBSC_URL . 'inc/styles/bootstrap.combined.min.css');
-			wp_register_script('bootstrap_js', MOUNTAININJATBSC_URL . 'inc/scripts/bootstrap.min.js');
+			wp_register_style('bootstrap_css', PLUGINNINJATBSC_URL . 'inc/styles/bootstrap.combined.min.css');
+			wp_register_script('bootstrap_js', PLUGINNINJATBSC_URL . 'inc/scripts/bootstrap.min.js');
 			wp_register_script( 'jquery', '//code.jquery.com/jquery-latest.min.js');
 
 			#wp_register_style('bootstrap_css', '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css');
@@ -62,4 +54,4 @@ Author URI: http://brandoncamenisch.com/
 			#wp_enqueue_script('bootstrap_js');
 		}
 	}
-	add_action('wp_enqueue_scripts', 'mountaininjatbsc_scripts_styles');
+	add_action('wp_enqueue_scripts', 'pluginninjatbsc_scripts_styles');

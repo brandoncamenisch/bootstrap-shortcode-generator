@@ -4,8 +4,8 @@
 /*  Alerts Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_alert')) {
-  function mountaininja_alert( $atts, $content = null ) {
+if (!function_exists('pluginninja_alert')) {
+  function pluginninja_alert( $atts, $content = null ) {
     extract(shortcode_atts(array(
       'style'   => 'warning',
       'dismiss' => 'false'
@@ -23,14 +23,14 @@ if (!function_exists('mountaininja_alert')) {
 
     return $output;
   }
-  add_shortcode('mountaininja_alert', 'mountaininja_alert');
+  add_shortcode('pluginninja_alert', 'pluginninja_alert');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Well Shortcode
 /*-----------------------------------------------------------------------------------*/
-if (!function_exists('mountaininja_well')) {
-  function mountaininja_well( $atts, $content = null ) {
+if (!function_exists('pluginninja_well')) {
+  function pluginninja_well( $atts, $content = null ) {
     extract(shortcode_atts(array(
       'style'   => 'default'
     ), $atts));
@@ -41,15 +41,15 @@ if (!function_exists('mountaininja_well')) {
 
     return $output;
   }
-  add_shortcode('mountaininja_well', 'mountaininja_well');
+  add_shortcode('pluginninja_well', 'pluginninja_well');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Button Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_button')) {
-  function mountaininja_button( $atts, $content = null ) {
+if (!function_exists('pluginninja_button')) {
+  function pluginninja_button( $atts, $content = null ) {
     extract(shortcode_atts(array(
       'url'     => '',
       'style'   => 'default',
@@ -66,59 +66,59 @@ if (!function_exists('mountaininja_button')) {
 
     return $output;
   }
-  add_shortcode('mountaininja_button', 'mountaininja_button');
+  add_shortcode('pluginninja_button', 'pluginninja_button');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Buttons Group Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_buttons_group')) {
-  function mountaininja_buttons_group( $atts, $content = null ) {
+if (!function_exists('pluginninja_buttons_group')) {
+  function pluginninja_buttons_group( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
 
     return '<div class="btn-group">'. do_shortcode($content) .'</div>';
   }
-  add_shortcode( 'mountaininja_buttons_group', 'mountaininja_buttons_group' );
+  add_shortcode( 'pluginninja_buttons_group', 'pluginninja_buttons_group' );
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Label Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_label')) {
-  function mountaininja_label( $atts, $content = null ) {
+if (!function_exists('pluginninja_label')) {
+  function pluginninja_label( $atts, $content = null ) {
     extract(shortcode_atts(array(
       'style' => 'default',
     ), $atts));
 
     return '<span class="label label-'. $style .'">'. do_shortcode($content) .'</span>';
   }
-  add_shortcode('mountaininja_label', 'mountaininja_label');
+  add_shortcode('pluginninja_label', 'pluginninja_label');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Badges Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_badge')) {
-  function mountaininja_badge( $atts, $content = null ) {
+if (!function_exists('pluginninja_badge')) {
+  function pluginninja_badge( $atts, $content = null ) {
     extract(shortcode_atts(array(
       'style' => 'default',
     ), $atts));
 
     return '<span class="badge badge-'. $style .'">'. do_shortcode($content) .'</span>';
   }
-  add_shortcode('mountaininja_badge', 'mountaininja_badge');
+  add_shortcode('pluginninja_badge', 'pluginninja_badge');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Tabs Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_tabs')) {
-  function mountaininja_tabs( $atts, $content = null ) {
+if (!function_exists('pluginninja_tabs')) {
+  function pluginninja_tabs( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
 
@@ -129,7 +129,7 @@ if (!function_exists('mountaininja_tabs')) {
     if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
 
     // Add active attribute to first tab content
-    $content = preg_replace('/(mountaininja_tab)/', '${1} first="true" ', $content, 1);
+    $content = preg_replace('/(pluginninja_tab)/', '${1} first="true" ', $content, 1);
 
     $output = '<div class="tabable">';
 
@@ -139,7 +139,7 @@ if (!function_exists('mountaininja_tabs')) {
       $i = 0;
       foreach( $tab_titles as $tab ){
         $activeClass = ($i == 0) ? 'active' : '';
-        $output .= '<li class="'.$activeClass.'"><a href="#mountaininja-tab-'. sanitize_title( $tab[0] ) .'" data-toggle="tab">' . $tab[0] . '</a></li>';
+        $output .= '<li class="'.$activeClass.'"><a href="#pluginninja-tab-'. sanitize_title( $tab[0] ) .'" data-toggle="tab">' . $tab[0] . '</a></li>';
         $i++;
       }
 
@@ -154,11 +154,11 @@ if (!function_exists('mountaininja_tabs')) {
 
     return $output;
   }
-  add_shortcode( 'mountaininja_tabs', 'mountaininja_tabs' );
+  add_shortcode( 'pluginninja_tabs', 'pluginninja_tabs' );
 }
 
-if (!function_exists('mountaininja_tab')) {
-  function mountaininja_tab( $atts, $content = null ) {
+if (!function_exists('pluginninja_tab')) {
+  function pluginninja_tab( $atts, $content = null ) {
     $defaults = array(
       'title' => 'Tab',
       'first' => ''
@@ -171,30 +171,30 @@ if (!function_exists('mountaininja_tab')) {
     // Add auto formating
     $content = wpautop( trim($content) );
 
-    return '<div id="mountaininja-tab-'. sanitize_title( $title ) .'" class="tab-pane fade '. $activeClass .'">'. do_shortcode( $content ) .'</div>';
+    return '<div id="pluginninja-tab-'. sanitize_title( $title ) .'" class="tab-pane fade '. $activeClass .'">'. do_shortcode( $content ) .'</div>';
   }
-  add_shortcode( 'mountaininja_tab', 'mountaininja_tab' );
+  add_shortcode( 'pluginninja_tab', 'pluginninja_tab' );
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Accordion Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_accordions')) {
-  function mountaininja_accordions( $atts, $content = null ) {
+if (!function_exists('pluginninja_accordions')) {
+  function pluginninja_accordions( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
 
     // Add active attribute to first accordion content
-    $content = preg_replace('/(mountaininja_accordion)/', '${1} first="true" ', $content, 1);
+    $content = preg_replace('/(pluginninja_accordion)/', '${1} first="true" ', $content, 1);
 
     return '<div class="accordion">'. do_shortcode($content) .'</div><!-- End Accordion -->';
   }
-  add_shortcode( 'mountaininja_accordions', 'mountaininja_accordions' );
+  add_shortcode( 'pluginninja_accordions', 'pluginninja_accordions' );
 }
 
-if (!function_exists('mountaininja_accordion')) {
-  function mountaininja_accordion( $atts, $content = null ) {
+if (!function_exists('pluginninja_accordion')) {
+  function pluginninja_accordion( $atts, $content = null ) {
     $defaults = array(
       'title' => 'Accordion Title',
       'first' => ''
@@ -206,7 +206,7 @@ if (!function_exists('mountaininja_accordion')) {
 
       // Accordion heading
       $output .= '<div class="accordion-heading">';
-      $output .= '<a class="accordion-toggle" data-toggle="collapse" href="#mountaininja-accordion-'. sanitize_title( $title ) .'">';
+      $output .= '<a class="accordion-toggle" data-toggle="collapse" href="#pluginninja-accordion-'. sanitize_title( $title ) .'">';
       $output .= $title . '</a>';
       $output .= '</div>';
 
@@ -217,7 +217,7 @@ if (!function_exists('mountaininja_accordion')) {
       // Add auto formating
       $content = wpautop( trim($content) );
 
-      $output .= '<div class="accordion-body collapse '. $activeClass .'" id="mountaininja-accordion-'. sanitize_title( $title ) .'">';
+      $output .= '<div class="accordion-body collapse '. $activeClass .'" id="pluginninja-accordion-'. sanitize_title( $title ) .'">';
       $output .= '<div class="accordion-inner">'. do_shortcode($content) .'</div>';
       $output .= '</div>';
 
@@ -226,15 +226,15 @@ if (!function_exists('mountaininja_accordion')) {
 
     return $output;
   }
-  add_shortcode( 'mountaininja_accordion', 'mountaininja_accordion');
+  add_shortcode( 'pluginninja_accordion', 'pluginninja_accordion');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Toggle Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_toggle')) {
-  function mountaininja_toggle( $atts, $content = null ) {
+if (!function_exists('pluginninja_toggle')) {
+  function pluginninja_toggle( $atts, $content = null ) {
     $defaults = array(
       'title' => 'Toggle Title',
       'first' => ''
@@ -246,7 +246,7 @@ if (!function_exists('mountaininja_toggle')) {
 
       // Accordion heading
       $output .= '<div class="accordion-heading">';
-      $output .= '<a class="accordion-toggle" data-toggle="collapse" href="#mountaininja-toggle-'. sanitize_title( $title ) .'">';
+      $output .= '<a class="accordion-toggle" data-toggle="collapse" href="#pluginninja-toggle-'. sanitize_title( $title ) .'">';
       $output .= $title . '</a>';
       $output .= '</div>';
 
@@ -257,7 +257,7 @@ if (!function_exists('mountaininja_toggle')) {
       // Add auto formating
       $content = wpautop( trim($content) );
 
-      $output .= '<div class="accordion-body collapse '. $activeClass .'" id="mountaininja-toggle-'. sanitize_title( $title ) .'">';
+      $output .= '<div class="accordion-body collapse '. $activeClass .'" id="pluginninja-toggle-'. sanitize_title( $title ) .'">';
       $output .= '<div class="accordion-inner">'. do_shortcode($content) .'</div>';
       $output .= '</div>';
 
@@ -266,15 +266,15 @@ if (!function_exists('mountaininja_toggle')) {
 
     return $output;
   }
-  add_shortcode( 'mountaininja_toggle', 'mountaininja_toggle');
+  add_shortcode( 'pluginninja_toggle', 'pluginninja_toggle');
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*  Columns Shortcode
 /*-----------------------------------------------------------------------------------*/
 
-if (!function_exists('mountaininja_rows')) {
-  function mountaininja_rows( $atts, $content = null ) {
+if (!function_exists('pluginninja_rows')) {
+  function pluginninja_rows( $atts, $content = null ) {
     $defaults = array();
     extract( shortcode_atts( $defaults, $atts ) );
 
@@ -282,11 +282,11 @@ if (!function_exists('mountaininja_rows')) {
 
     return '<div class="row-fluid">'. do_shortcode($content) .'</div>';
   }
-  add_shortcode( 'mountaininja_rows', 'mountaininja_rows' );
+  add_shortcode( 'pluginninja_rows', 'pluginninja_rows' );
 }
 
-if (!function_exists('mountaininja_column')) {
-  function mountaininja_column( $atts, $content = null ) {
+if (!function_exists('pluginninja_column')) {
+  function pluginninja_column( $atts, $content = null ) {
     $defaults = array( 'column' => '12' );
     extract( shortcode_atts( $defaults, $atts) );
 
@@ -295,7 +295,7 @@ if (!function_exists('mountaininja_column')) {
 
     return '<div class="span'. $column .'">'. do_shortcode($content) .'</div>';
   }
-  add_shortcode( 'mountaininja_column', 'mountaininja_column');
+  add_shortcode( 'pluginninja_column', 'pluginninja_column');
 }
 
 
@@ -305,7 +305,7 @@ if (!function_exists('mountaininja_column')) {
 
 if (!function_exists('hr')) {
   function nesis_horizontal_rule( $atts, $content = null ) {
-    return '<hr class="mountaininja_divider">';
+    return '<hr class="pluginninja_divider">';
   }
   add_shortcode('hr', 'nesis_horizontal_rule');
 }

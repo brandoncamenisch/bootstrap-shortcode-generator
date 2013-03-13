@@ -5,7 +5,7 @@ require_once( 'shortcodes.class.php' );
 
 // get popup type
 $popup = trim( $_GET['popup'] );
-$shortcode = new mountaininja_shortcodes( $popup );
+$shortcode = new pluginninja_shortcodes( $popup );
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -13,39 +13,39 @@ $shortcode = new mountaininja_shortcodes( $popup );
 <head></head>
 <body>
 
-<div id="mountaininja-popup">
+<div id="pluginninja-popup">
 
-  <div id="mountaininja-shortcode-wrap">
+  <div id="pluginninja-shortcode-wrap">
 
-    <div id="mountaininja-sc-form-wrap">
+    <div id="pluginninja-sc-form-wrap">
 
-      <div id="mountaininja-sc-form-head">
+      <div id="pluginninja-sc-form-head">
         <?php echo $shortcode->popup_title; ?>
-      </div><!-- #mountaininja-sc-form-head -->
+      </div><!-- #pluginninja-sc-form-head -->
 
-      <form method="post" id="mountaininja-sc-form">
+      <form method="post" id="pluginninja-sc-form">
 
-        <table id="mountaininja-sc-form-table">
+        <table id="pluginninja-sc-form-table">
         
           <?php echo $shortcode->output; ?>
           
           <tbody>
             <tr class="form-row">
               <?php if( ! $shortcode->has_child ) : ?><td class="label">&nbsp;</td><?php endif; ?>
-              <td class="field"><a href="#" class="button-primary mountaininja-insert">Insert Shortcode</a></td>             
+              <td class="field"><a href="#" class="button-primary pluginninja-insert">Insert Shortcode</a></td>             
             </tr>
           </tbody>
         
-        </table><!-- #mountaininja-sc-form-table -->
+        </table><!-- #pluginninja-sc-form-table -->
 
-      </form><!-- #mountaininja-sc-form -->
+      </form><!-- #pluginninja-sc-form -->
 
-    </div><!-- #mountaininja-sc-form-wrap -->
+    </div><!-- #pluginninja-sc-form-wrap -->
 
     <div class="clear"></div>
 
-  </div><!-- #mountaininja-shortcode-wrap -->
+  </div><!-- #pluginninja-shortcode-wrap -->
 
-</div><!-- #mountaininja-popup -->
+</div><!-- #pluginninja-popup -->
 </body>
 </html>

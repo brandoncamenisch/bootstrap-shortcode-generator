@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Mountaininja Shortcodes
+ * Pluginninja Shortcodes
  *
  */
 
-class MountaininjaShortcodes {
+class PluginninjaShortcodes {
 
   function __construct()
   {
@@ -22,8 +22,8 @@ class MountaininjaShortcodes {
 
     if( !is_admin() )
     {
-      wp_enqueue_script( 'shortcode-script', MOUNTAININJATBSC_URL . 'inc/scripts/shortcode-script.js', array('jquery') );
-      wp_register_style( 'shortcode-style', MOUNTAININJATBSC_URL . 'inc/styles/shortcode.css' );
+      wp_enqueue_script( 'shortcode-script', PLUGINNINJATBSC_URL . 'inc/scripts/shortcode-script.js', array('jquery') );
+      wp_register_style( 'shortcode-style', PLUGINNINJATBSC_URL . 'inc/styles/shortcode.css' );
     }
 
     if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
@@ -44,7 +44,7 @@ class MountaininjaShortcodes {
    */
   function register_button($buttons)
   {
-    array_push($buttons, "|", "mountaininja_button");
+    array_push($buttons, "|", "pluginninja_button");
     return $buttons;
   }
 
@@ -56,7 +56,7 @@ class MountaininjaShortcodes {
    */
   function add_plugin($plugin_array)
   {
-    $plugin_array['mountaininjaShortcodes'] =  MOUNTAININJATBSC_URL . 'inc/scripts/mountaininja-shortcodes.js';
+    $plugin_array['pluginninjaShortcodes'] =  PLUGINNINJATBSC_URL . 'inc/scripts/pluginninja-shortcodes.js';
     return $plugin_array;
   }
 
@@ -69,17 +69,17 @@ class MountaininjaShortcodes {
   function admin_init()
   {
     // css
-    wp_enqueue_style( 'mountaininja-popup', MOUNTAININJATBSC_URL . 'inc/styles/popup.css' );
+    wp_enqueue_style( 'pluginninja-popup', PLUGINNINJATBSC_URL . 'inc/styles/popup.css' );
 
     // js
     wp_enqueue_script( 'jquery-ui-sortable' );
-    wp_enqueue_script( 'jquery-livequery', MOUNTAININJATBSC_URL . 'inc/scripts/jquery.livequery.js' );
-    wp_enqueue_script( 'jquery-appendo', MOUNTAININJATBSC_URL . 'inc/scripts/jquery.appendo.js' );
-    wp_enqueue_script( 'base64', MOUNTAININJATBSC_URL . 'inc/scripts/base64.js' );
-    wp_enqueue_script( 'mountaininja-popup', MOUNTAININJATBSC_URL . 'inc/scripts/popup.js' );
+    wp_enqueue_script( 'jquery-livequery', PLUGINNINJATBSC_URL . 'inc/scripts/jquery.livequery.js' );
+    wp_enqueue_script( 'jquery-appendo', PLUGINNINJATBSC_URL . 'inc/scripts/jquery.appendo.js' );
+    wp_enqueue_script( 'base64', PLUGINNINJATBSC_URL . 'inc/scripts/base64.js' );
+    wp_enqueue_script( 'pluginninja-popup', PLUGINNINJATBSC_URL . 'inc/scripts/popup.js' );
 
-    wp_localize_script( 'jquery', 'mountaininja_helper', array('framework_url' => MOUNTAININJATBSC_URL) );
+    wp_localize_script( 'jquery', 'pluginninja_helper', array('framework_url' => PLUGINNINJATBSC_URL) );
   }
 
 }
-$mountaininja_shortcodes = new MountaininjaShortcodes();
+$pluginninja_shortcodes = new PluginninjaShortcodes();
