@@ -13,8 +13,8 @@ Author URI: http://brandoncamenisch.com/
 // -------------------------------------------------------------------- //
 
 	// NOTE: PLUGINNINJATBSC = PluginNinja Twitter Bootstrap Shortcodes
-	define('PLUGINNINJATBSC_URL', plugin_dir_url(__FILE__));
-	define('PLUGINNINJATBSC_PATH', plugin_dir_path(__FILE__));
+		define('PLUGINNINJATBSC_URL', plugin_dir_url(__FILE__));
+		define('PLUGINNINJATBSC_PATH', plugin_dir_path(__FILE__));
 
 // -------------------------------------------------------------------- //
 //	Includes
@@ -24,17 +24,6 @@ Author URI: http://brandoncamenisch.com/
 	}
 	#require on front-end
 	require_once PLUGINNINJATBSC_PATH . 'inc/pluginninja-shortcodes.php';
-
-// -------------------------------------------------------------------- //
-//	Init the updater
-// -------------------------------------------------------------------- //
-	function pluginninjatbsc_plugin_updater() {
-		if (class_exists('PluginUpdateChecker')) {
-
-			$PluginNinjatwitterbootstrap = new PluginUpdateChecker( 'https://pluginninja.com/wp-content/plugins/pluginninja-updatechief/json/pluginninja-twitter-bootstrap-shortcodes.json', __FILE__,'pluginninja-twitter-bootstrap-shortcodes');
-		}
-	}
-	add_action('plugins_loaded','pluginninjatbsc_plugin_updater');
 
 // -------------------------------------------------------------------- //
 //	Register | Enqueue : Styles | Scripts DEVELOPMENT ONLY!!!

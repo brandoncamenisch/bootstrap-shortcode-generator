@@ -161,7 +161,7 @@ class pluginninja_shortcodes
             $output  =& $row_start;
             $output .= '<label for="' . $pkey . '" class="pluginninja-form-checkbox '. ( $param['show_opt'] ? 'pluginninja-collapse-button' : '' ) .'">' . "\n";
             $output .= '<input type="checkbox" class="pluginninja-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' rel="pluginninja_'.  $param['show_opt'] .'" />' . "\n";
-            $output .= ' ' . $param['checkbox_text'] . '</label>' . "\n";
+            $output .= ' ' . @$param['checkbox_text'] . '</label>' . "\n";
             $output .= $row_end;
 
             #append

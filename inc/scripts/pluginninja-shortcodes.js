@@ -1,4 +1,4 @@
-(function(){
+ (function(){
 
   // Create Shortcodes plugin
   tinymce.create("tinymce.plugins.pluginninjaShortcodes",{
@@ -31,6 +31,7 @@
           a.addWithPopup( b, "Accordion", "accordion" );
           a.addWithPopup( b, "Columns", "columns" );
           a.addWithPopup( b, "Well", "well" );
+          a.addWithPopup( b, "Progresss Bars", "progress" );
           a.addImmediate( b, "Horizontal Rule", "[hr]" );
         });
 

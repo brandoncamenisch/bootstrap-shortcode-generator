@@ -304,10 +304,10 @@ if (!function_exists('pluginninja_column')) {
 /*-----------------------------------------------------------------------------------*/
 
 if (!function_exists('hr')) {
-  function nesis_horizontal_rule( $atts, $content = null ) {
-    return '<hr class="pluginninja_divider">';
+  function pluginninja_horizontal_rule( $atts, $content = null ) {
+    return '<hr/>';
   }
-  add_shortcode('hr', 'nesis_horizontal_rule');
+  add_shortcode('hr', 'pluginninja_horizontal_rule');
 }
 
 /**
@@ -315,3 +315,26 @@ if (!function_exists('hr')) {
  */
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 12);
+
+/*-----------------------------------------------------------------------------------*/
+/*  Progress Bar Shorcode
+/*-----------------------------------------------------------------------------------*/
+
+if (!function_exists('pluginninja_progress')) {
+  function pluginninja_progress( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+      'style'   => 'defualt',
+      'size'    => '50',
+      'striped' => 'progress-striped',
+      'active'  => 'active',
+    ), $atts));
+
+    $output  = "<div class=\"progress $style $striped $active\">
+									<div class=\"bar\" style=\"width: $size%;\"></div>
+								</div>";
+
+    return $output;
+		$striped = NULL;
+  }
+  add_shortcode('pluginninja_progess', 'pluginninja_progress');
+}

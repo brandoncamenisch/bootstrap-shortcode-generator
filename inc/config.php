@@ -334,4 +334,53 @@ $pluginninja_shortcodes['columns'] = array(
   )
 );
 
+/*-----------------------------------------------------------------------------------*/
+/*  Progress Bar Configuration
+/*-----------------------------------------------------------------------------------*/
+
+$pluginninja_shortcodes['progress'] = array(
+  'no_preview'      => true,
+  'params'          => array(
+    'style'         => array(
+      'type'        => 'select',
+      'label'       => __('Progress Bar style', 'pluginninja'),
+      'desc'        => __('Select Bar\'s style, ie the bar\'s colour.'),
+      'options'     => array(
+        'progress-info'     => 'Default',
+        'progress-success'  => 'Success',
+        'progress-warning'  => 'Warning',
+        'progress-danger'   => 'Important'
+      )
+    ),
+    'active'       => array(
+      'std'         => 'Active',
+      'type'        => 'select',
+      'label' => __('Is the bar active?', 'pluginninja'),
+      'desc' => __('Make it so.', 'pluginninja'),
+			'options' => array(
+				'active' => 'Active',
+				'' => 'Not Active',
+			),
+    ),
+    'striped'       => array(
+      'std'         => 'Striped',
+      'type'        => 'select',
+      'label' => __('Is the bar striped?', 'pluginninja'),
+      'desc' => __('Make it so.', 'pluginninja'),
+			'options' => array(
+				'progress-striped' => 'Striped',
+				'' => 'Not Striped',
+			),
+    ),
+    'size'        => array(
+      'std'         => 'Size',
+      'type'        => 'text',
+      'label' => __('Progress Amount', 'pluginninja'),
+      'desc' => __('How much progress has been made?', 'pluginninja')
+    ),
+
+  ),
+  'shortcode'       => '[pluginninja_progess style="{{style}}" active="{{active}}" size="{{size}}" striped="{{striped}}"/]',
+  'popup_title'     => __('Insert Progress Bar Shortcode', 'pluginninja')
+);
 ?>
