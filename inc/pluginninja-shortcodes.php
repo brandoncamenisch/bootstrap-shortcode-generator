@@ -334,7 +334,26 @@ if (!function_exists('pluginninja_progress')) {
 								</div>";
 
     return $output;
-		$striped = NULL;
+
   }
   add_shortcode('pluginninja_progess', 'pluginninja_progress');
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Progress Bar Shorcode
+/*-----------------------------------------------------------------------------------*/
+
+if (!function_exists('pluginninja_tooltip')) {
+  function pluginninja_tooltip( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+      'href'        => '#',
+      'placement'   => 'top',
+      'title'       => 'title',
+      'content'     => 'content',
+    ), $atts));
+
+    $output  = "<a href=\"$href\" rel=\"tooltip\" data-toggle=\"tooltip\" data-placement=\"$placement\" title=\"$title\" data-original-title=\"$title\">$content</a>";
+    return $output;
+  }
+  add_shortcode('pluginninja_tooltip', 'pluginninja_tooltip');
 }

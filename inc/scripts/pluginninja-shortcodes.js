@@ -21,18 +21,19 @@
         });
 
         btn.onRenderMenu.add(function (c, b){
+          a.addWithPopup( b, "Accordion", "accordion" );
           a.addWithPopup( b, "Alerts", "alert" );
+          a.addWithPopup( b, "Badge", "badge" );
           a.addWithPopup( b, "Button", "button" );
           a.addWithPopup( b, "Button Group", "buttons_group" );
-          a.addWithPopup( b, "Inline label", "label" );
-          a.addWithPopup( b, "Tabs", "tabs" );
-          a.addWithPopup( b, "Badge", "badge" );
-          a.addWithPopup( b, "Toggle", "toggle" );
-          a.addWithPopup( b, "Accordion", "accordion" );
           a.addWithPopup( b, "Columns", "columns" );
-          a.addWithPopup( b, "Well", "well" );
-          a.addWithPopup( b, "Progresss Bars", "progress" );
           a.addImmediate( b, "Horizontal Rule", "[hr]" );
+          a.addWithPopup( b, "Inline label", "label" );
+          a.addWithPopup( b, "Progresss Bars", "progress" );
+          a.addWithPopup( b, "Tabs", "tabs" );
+          a.addWithPopup( b, "Toggle", "toggle" );
+          a.addWithPopup( b, "Tooltips", "tooltip" );
+          a.addWithPopup( b, "Well", "well" );
         });
 
         return btn;

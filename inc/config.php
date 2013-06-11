@@ -355,11 +355,11 @@ $pluginninja_shortcodes['progress'] = array(
     'active'       => array(
       'std'         => 'Active',
       'type'        => 'select',
-      'label' => __('Is the bar active?', 'pluginninja'),
-      'desc' => __('Make it so.', 'pluginninja'),
-			'options' => array(
-				'active' => 'Active',
-				'' => 'Not Active',
+      'label'   => __('Is the bar active?', 'pluginninja'),
+      'desc'    => __('Make it so.', 'pluginninja'),
+			'options'    => array(
+				'active'    => 'Active',
+				''          => 'Not Active',
 			),
     ),
     'striped'       => array(
@@ -383,4 +383,47 @@ $pluginninja_shortcodes['progress'] = array(
   'shortcode'       => '[pluginninja_progess style="{{style}}" active="{{active}}" size="{{size}}" striped="{{striped}}"/]',
   'popup_title'     => __('Insert Progress Bar Shortcode', 'pluginninja')
 );
+
+/*-----------------------------------------------------------------------------------*/
+/*  Tooltips
+/*-----------------------------------------------------------------------------------*/
+
+$pluginninja_shortcodes['tooltip']  = array(
+  'no_preview'                      => true,
+  'params' => array(
+    'href' => array(
+      'type' => 'text',
+      'label' => __('Tooltip Link', 'pluginninja'),
+      'desc' => __('Link for tooltip.'),
+    ),
+    'placement' => array(
+      'type' => 'select',
+      'label' => __('Tooltip Placement', 'pluginninja'),
+      'desc' => __('Placement for tooltip.'),
+			'options' => array(
+				'top' => 'Top',
+				'bottom' => 'Bottom',
+				'left' => 'Left',
+				'right' => 'Right',
+				),
+			),
+    'title' => array(
+      'std' => 'Title',
+      'type' => 'text',
+      'label' => __('Tooltip\'s Text', 'pluginninja'),
+      'desc' => __('Add the tooltip\'s text', 'pluginninja')
+    ),
+       'content' => array(
+      'std' => 'Content',
+      'type' => 'textarea',
+      'label' => __('Tooltip\'s content', 'pluginninja'),
+      'desc' => __('Add the tooltip\'s content', 'pluginninja'),
+    ),
+),
+  'shortcode' => '[pluginninja_tooltip href="{{href}}"/ placement="{{placement}}" title="{{title}} content="{{content}}"/]',
+  'popup_title' => __('Insert Tooltip Shortcode', 'pluginninja')
+);
+
+
+
 ?>
