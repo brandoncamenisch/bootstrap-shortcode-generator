@@ -1,4 +1,3 @@
-
 <?php
 /*
 Plugin Name:  Twitter Bootstrap Shortcode Generator

@@ -368,7 +368,6 @@ if (!function_exists('pluginninja_code')) {
       'content'=> 'coder',
       'ct'     => 'test',
     ), $atts));
-		var_dump($content);
 		$content = esc_html($content);
     $output  = "<pre>$content</pre>";
     return $output;
