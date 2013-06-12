@@ -26,6 +26,7 @@
           a.addWithPopup( b, "Badge", "badge" );
           a.addWithPopup( b, "Button", "button" );
           a.addWithPopup( b, "Button Group", "buttons_group" );
+          a.addImmediate( b, "Code Block", "[pluginninja_code content=\"Enter Code here\"/]" );
           a.addWithPopup( b, "Columns", "columns" );
           a.addImmediate( b, "Horizontal Rule", "[hr]" );
           a.addWithPopup( b, "Inline label", "label" );

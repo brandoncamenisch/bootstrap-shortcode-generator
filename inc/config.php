@@ -424,6 +424,4 @@ $pluginninja_shortcodes['tooltip']  = array(
   'popup_title' => __('Insert Tooltip Shortcode', 'pluginninja')
 );
 
-
-
 ?>

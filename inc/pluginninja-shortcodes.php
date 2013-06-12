@@ -340,7 +340,7 @@ if (!function_exists('pluginninja_progress')) {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*  Progress Bar Shorcode
+/*  Tooltip Shorcode
 /*-----------------------------------------------------------------------------------*/
 
 if (!function_exists('pluginninja_tooltip')) {
@@ -356,4 +356,22 @@ if (!function_exists('pluginninja_tooltip')) {
     return $output;
   }
   add_shortcode('pluginninja_tooltip', 'pluginninja_tooltip');
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Pre Shorcode
+/*-----------------------------------------------------------------------------------*/
+
+if (!function_exists('pluginninja_code')) {
+  function pluginninja_code( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+      'content'=> 'coder',
+      'ct'     => 'test',
+    ), $atts));
+		var_dump($content);
+		$content = esc_html($content);
+    $output  = "<pre>$content</pre>";
+    return $output;
+
+  } add_shortcode('pluginninja_code', 'pluginninja_code');
 }
